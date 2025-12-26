@@ -4,6 +4,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+
 def init_gcp_credentials():
     # Charge le .env
     load_dotenv()
@@ -20,5 +21,9 @@ def init_gcp_credentials():
 
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(cred_absolute_path)
 
+    project_id = os.environ.get("PROJECT_ID")
+    dataset_id = os.environ.get("DATASET_ID")
+
     # Retourne le project_id si défini dans .env, sinon None
-    return os.environ.get("GOOGLE_CLOUD_PROJECT")
+    return project_id, dataset_id
+

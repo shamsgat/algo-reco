@@ -1,6 +1,8 @@
 import logging
+import os
 import pandas as pd
 import json
+from scripts.bootstrap import init_gcp_credentials
 from typing import Union
 import gcsfs
 from google.cloud import bigquery
@@ -12,6 +14,10 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
+# Initialize GCP credentials and get project ID
+PROJECT_ID = init_gcp_credentials()[0]
+DATASET_ID = init_gcp_credentials()[1]
 
 def load_data_gcs(gcs_path: str) -> pd.DataFrame:
     """
@@ -90,44 +96,75 @@ def dump_data_gcs(data: Union[pd.DataFrame, dict, list], path: str, filename: st
         )
 
     logger.info("DUMP DATA : Dump to GCS completed successfully")
-        
-def load_data_bq(table_id: str) -> pd.DataFrame:
-    """
-    Load a BigQuery table into a pandas DataFrame.
 
-    Parameters
-    ----------
-    table_id : str
-        Full table ID (project.dataset.table)
+def load_data_bq(project_id: str, dataset_id: str, table_name: str) -> pd.DataFrame:
 
-    Returns
-    -------
-    pd.DataFrame
-    """
-    logger.info("LOAD DATA BQ : Starting load from BigQuery table: %s", table_id)
+    logger.info("LOAD DATA : Starting load from BigQuery table: %s", f"{project_id}.{dataset_id}.{table_name}")
 
-    client = bigquery.Client()
+    client = bigquery.Client(project=project_id)
 
     # Check table exists
     try:
-        table = client.get_table(table_id)
+        table = client.get_table(f"{project_id}.{dataset_id}.{table_name}")
         logger.info(
-            "LOAD DATA BQ : Table found (%d rows, %d columns)",
+            "LOAD DATA : Table BQ found (%d rows, %d columns)",
             table.num_rows,
             len(table.schema),
         )
     except NotFound:
-        logger.error("LOAD DATA BQ : Table does not exist: %s", table_id)
-        raise FileNotFoundError(f"LOAD DATA BQ : Table does not exist: {table_id}")
+        logger.error("LOAD DATA : Table BQ does not exist: %s", f"{project_id}.{dataset_id}.{table_name}")
+        raise FileNotFoundError(f"LOAD DATA BQ : Table does not exist: {project_id}.{dataset_id}.{table_name}")
 
     # Load data
     df = client.list_rows(table).to_dataframe()
 
     logger.info(
-        "LOAD DATA BQ : Load completed successfully (%d rows)",
+        "LOAD DATA : Load BQ completed successfully (%d rows)",
         len(df),
     )
     return df
+
+def dump_table_into_bq(
+    df: pd.DataFrame,
+    project_id: str,
+    dataset_id: str,
+    table_name: str,
+) -> None:
+    """
+    Dump un DataFrame dans BigQuery.
+    Crée le dataset s'il n'existe pas.
+    """
+
+    logger.info("DUMP DATA : Starting dump from BigQuery table: %s", f"{project_id}.{dataset_id}.{table_name}")
+
+
+    client = bigquery.Client(project=project_id)
+
+    dataset_ref = f"{project_id}.{dataset_id}"
+    table_ref = f"{dataset_ref}.{table_name}"
+
+    # 1️⃣ Vérifier / créer le dataset (mkdir logique)
+    try:
+        client.get_dataset(dataset_ref)
+        logger.info("DUMP DATA : Dataset %s in BQ already exists", dataset_ref)
+    except NotFound:
+        logger.warning("DUMP DATA : Dataset %s in BQ not found. Creating it...", dataset_ref)
+        dataset = bigquery.Dataset(dataset_ref)
+        dataset.location = "EU"  # ou "US" selon ton projet
+        client.create_dataset(dataset)
+        logger.info("DUMP DATA : Dataset %s in BQ created", dataset_ref)
+
+    # 2️⃣ Charger la table
+    logger.info(
+        "DUMP DATA : Starting load into BigQuery table %s (%d rows)",
+        table_ref,
+        len(df),
+    )
+
+    job = client.load_table_from_dataframe(df, table_ref)
+    job.result()
+
+    logger.info("DUMP DATA : Dump BQ completed successfully for table %s", table_ref)
 
 # Test Load & Dump GCS
 # produits_path_gcs = "gs://algo_reco/raw/produits/produits.csv"
@@ -136,7 +173,9 @@ def load_data_bq(table_id: str) -> pd.DataFrame:
 # dump_data_gcs(produits[:3],path, "pro_test2")
 
 # Test load data BigQuery
-df = load_data_bq("smart-quasar-478510-r3.algo_reco_raw.produits_raw")
-print(df.head())
+# df = load_data_bq(PROJECT_ID, DATASET_ID, "produits_raw")
+# print(df.head())
 
+# Test dump data BigQuery
+# dump_table_into_bq(df.head(), PROJECT_ID, "algo_reco_test_dump", "produits_test")
 
