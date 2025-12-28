@@ -1,5 +1,4 @@
 import logging
-import os
 import pandas as pd
 import json
 from scripts.bootstrap import init_gcp_credentials
@@ -124,12 +123,7 @@ def load_data_bq(project_id: str, dataset_id: str, table_name: str) -> pd.DataFr
     )
     return df
 
-def dump_table_into_bq(
-    df: pd.DataFrame,
-    project_id: str,
-    dataset_id: str,
-    table_name: str,
-) -> None:
+def dump_table_into_bq(df: pd.DataFrame, project_id: str, dataset_id: str, table_name: str) -> None:
     """
     Dump un DataFrame dans BigQuery.
     Crée le dataset s'il n'existe pas.
@@ -166,16 +160,4 @@ def dump_table_into_bq(
 
     logger.info("DUMP DATA : Dump BQ completed successfully for table %s", table_ref)
 
-# Test Load & Dump GCS
-# produits_path_gcs = "gs://algo_reco/raw/produits/produits.csv"
-# produits = load_data_gcs(produits_path_gcs)
-# path = "gs://algo_reco/features/train"
-# dump_data_gcs(produits[:3],path, "pro_test2")
-
-# Test load data BigQuery
-# df = load_data_bq(PROJECT_ID, DATASET_ID, "produits_raw")
-# print(df.head())
-
-# Test dump data BigQuery
-# dump_table_into_bq(df.head(), PROJECT_ID, "algo_reco_test_dump", "produits_test")
 
