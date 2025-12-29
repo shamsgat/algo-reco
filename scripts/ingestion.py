@@ -1,37 +1,53 @@
+# scripts/ingestion.py
+
+import os
 import logging
-import pandas as pd
 from scripts.bootstrap import init_gcp_credentials
-from scripts.utils import load_data_gcs, dump_data_gcs, load_data_bq, dump_table_into_bq
+from scripts.utils import (
+    load_data_gcs,
+    dump_data_gcs,
+    load_data_bq,
+    dump_table_into_bq,
+)
 
-
+logger = logging.getLogger(__name__)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
 )
 
-logger = logging.getLogger(__name__)
+class Ingestion:
+    def __init__(self):
+        # Initialize GCP credentials
+        init_gcp_credentials()
 
-# Initialize GCP credentials and get project ID
-PROJECT_ID = init_gcp_credentials()[0]
-DATASET_ID = init_gcp_credentials()[1]
+        self.project_id = os.getenv("PROJECT_ID")
+        self.dataset_id = os.getenv("DATASET_ID")
 
-# Load raw data from BigQuery to python dataframe
-produits = load_data_bq(PROJECT_ID, DATASET_ID, "produits_raw")
-transactions = load_data_bq(PROJECT_ID, DATASET_ID, "transactions_raw")
-substitutions = load_data_bq(PROJECT_ID, DATASET_ID, "substitutions_raw")
+        # Log the retrieved values
+        logger.info("Ingestion initialized with PROJECT_ID=%s and DATASET_ID=%s", 
+                    self.project_id, self.dataset_id)
 
-# Data processing
+        if not self.project_id or not self.dataset_id:
+            raise EnvironmentError("PROJECT_ID or DATASET_ID not set")
 
-produits_original = produits.add_suffix('Original')
-substitutions_produits_original = pd.merge(substitutions, produits_original, \
-on='idProduitOriginal' , how ='left')
-produits_substitution = produits.add_suffix('Substitution')
-substitutions_produits_original_substitut = pd.merge(substitutions_produits_original, produits_substitution,\
-    on='idProduitSubstitution' , how ='left')
+    def gcs_to_bq(self, gcs_path: str, table_name: str):
+        logger.info("Starting gcs_to_bq for table: %s", table_name)
+        df = load_data_gcs(gcs_path)
+        dump_table_into_bq(
+            df,
+            project_id=self.project_id,
+            dataset_id=self.dataset_id,
+            table_name=table_name,
+        )
+        logger.info("Completed gcs_to_bq for table: %s", table_name)
 
-transactions_avec_substitution = pd.merge(transactions, substitutions_produits_original_substitut, \
-left_on=['idProduit', 'idTransaction'], right_on=['idProduitOriginal', 'idTransaction'], how='inner')
-transactions_avec_substitution['estAcceptee_bin'] = [1 if x == False else 0 for x in transactions_avec_substitution['estAcceptee']]
-
-
-
+    def bq_to_gcs(self, table_name: str, gcs_path: str, filename: str):
+        logger.info("Starting bq_to_gcs for table: %s", table_name)
+        df = load_data_bq(
+            project_id=self.project_id,
+            dataset_id=self.dataset_id,
+            table_name=table_name,
+        )
+        dump_data_gcs(df, gcs_path, filename=filename)
+        logger.info("Completed bq_to_gcs for table: %s", table_name)
