@@ -19,10 +19,7 @@ logging.basicConfig(
 class Ingestion:
     def __init__(self):
         # Initialize GCP credentials
-        init_gcp_credentials()
-
-        self.project_id = os.getenv("PROJECT_ID")
-        self.dataset_id = os.getenv("DATASET_ID")
+        self.project_id, self.dataset_id = init_gcp_credentials()
 
         # Log the retrieved values
         logger.info("Ingestion initialized with PROJECT_ID=%s and DATASET_ID=%s", 
