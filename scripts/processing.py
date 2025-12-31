@@ -1,48 +1,67 @@
-# scripts/processing.py
-import pandas as pd
+# # scripts/processing.py
 
-def process_transactions(produits: pd.DataFrame, 
-                         substitutions: pd.DataFrame, 
-                         transactions: pd.DataFrame) -> pd.DataFrame:
-    """
-    Merge products, substitutions, and transactions
-    to create the enriched dataset with substitutions.
-    """
+# # 1) Définir la cible
+# y = transactions_avec_substitution["estAcceptee_bin"]
 
-    # Add suffix to distinguish original product columns
-    produits_original = produits.add_suffix('Original')
+# # 2) Définir les features
+# features_num = [
+#     "DiffPrix",
+#     "MemeMarque",
+#     "MemeNutriscore",
+#     "MemeBio",
+#     "prixOriginal",
+#  #   "prixSubstitution",
+#     "MemeConditionnement",
+#     "MemeTypeMarque",
+#     "estBioOriginal",
+#     "Month",
+# ]
 
-    # Merge substitutions with original products
-    substitutions_produits_original = pd.merge(
-        substitutions,
-        produits_original,
-        on='idProduitOriginal',
-        how='left'
-    )
+# features_cat = [
+#     "categorieOriginal",
+#     "marqueOriginal",
+#     "typeMarqueOriginal",
+#     "nutriscoreOriginal",
+#     "origineOriginal",
+#     "conditionnementOriginal",
+#     "categorieSubstitution",
+#  #  "marqueSubstitution",
+#     "typeMarqueSubstitution",
+#  #  "nutriscoreSubstitution",
+#     "origineSubstitution",
+#  #  "estBioSubstitution",
+# #  "conditionnementSubstitution",
+#     "Day_of_week_name",
+# ]
 
-    # Add suffix for substitution products
-    produits_substitution = produits.add_suffix('Substitution')
+# X = transactions_avec_substitution[features_num + features_cat]
 
-    # Merge substitutions with substitution products
-    substitutions_produits_original_substitut = pd.merge(
-        substitutions_produits_original,
-        produits_substitution,
-        on='idProduitSubstitution',
-        how='left'
-    )
+# # 3) Split temporel AVANT fit du préprocessing
+# cutoff_idx = int(len(transactions_avec_substitution) * 0.8)
+# X_train_raw, X_test_raw = X.iloc[:cutoff_idx], X.iloc[cutoff_idx:]
+# y_train, y_test = y.iloc[:cutoff_idx], y.iloc[cutoff_idx:]
+                                              
+# # 4) Imputation des valeurs nulles et encodage des variables catégorielles
+# numeric_transformer = Pipeline(
+#     steps=[
+#         ("imputer", SimpleImputer(strategy="median")),
+#         ("scaler", StandardScaler()),
+#     ]
+# )
+# categorical_transformer = Pipeline(
+#     steps=[
+#         ("imputer", SimpleImputer(strategy="most_frequent")),
+#         ("onehot", OneHotEncoder(handle_unknown='ignore')),
+#     ]
+# )
+# preprocessor = ColumnTransformer(
+#     transformers=[
+#         ("num", numeric_transformer, features_num),
+#         ("cat", categorical_transformer, features_cat),
+#     ]
+# )
 
-    # Merge with transactions
-    transactions_avec_substitution = pd.merge(
-        transactions,
-        substitutions_produits_original_substitut,
-        left_on=['idProduit', 'idTransaction'],
-        right_on=['idProduitOriginal', 'idTransaction'],
-        how='inner'
-    )
+# # Fit du preprocessing sur le train et transform le test
+# X_train = preprocessor.fit_transform(X_train_raw)
+# X_test = preprocessor.transform(X_test_raw)
 
-    # Encode estAcceptee as binary
-    transactions_avec_substitution['estAcceptee_bin'] = (
-        transactions_avec_substitution['estAcceptee'].apply(lambda x: 1 if x is False else 0)
-    )
-
-    return transactions_avec_substitution
