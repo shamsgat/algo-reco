@@ -76,26 +76,24 @@ def add_similarity_features(df: pd.DataFrame) -> pd.DataFrame:
 
     df["MemeMarque"] = (
         df["marqueOriginal"] == df["marqueSubstitution"]
-    ).astype(int)
+    ).fillna(False).astype(int)
 
     df["MemeNutriscore"] = (
         df["nutriscoreOriginal"] == df["nutriscoreSubstitution"]
-    ).astype(int)
-
+    ).fillna(False).astype(int)
     df["MemeConditionnement"] = (
         df["conditionnementOriginal"] == df["conditionnementSubstitution"]
-    ).astype(int)
+    ).fillna(False).astype(int)
 
     df["MemeTypeMarque"] = (
         df["typeMarqueOriginal"] == df["typeMarqueSubstitution"]
-    ).astype(int)
-
+    ).fillna(False).astype(int)
     df["DiffPrix"] = df["prixSubstitution"] - df["prixOriginal"]
 
     df["MemeBio"] = (
         (df["estBioOriginal"] == True) &
         (df["estBioSubstitution"] == True)
-    ).astype(int)
+    ).fillna(False).astype(int)
 
     logger.info(
         "FEATURE ENG : Similarity features added: %s",

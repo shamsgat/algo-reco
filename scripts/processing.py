@@ -1,67 +1,139 @@
-# # scripts/processing.py
+# scripts/processing.py
+import logging
+import pandas as pd
+from typing import List, Tuple
 
-# # 1) Définir la cible
-# y = transactions_avec_substitution["estAcceptee_bin"]
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
 
-# # 2) Définir les features
-# features_num = [
-#     "DiffPrix",
-#     "MemeMarque",
-#     "MemeNutriscore",
-#     "MemeBio",
-#     "prixOriginal",
-#  #   "prixSubstitution",
-#     "MemeConditionnement",
-#     "MemeTypeMarque",
-#     "estBioOriginal",
-#     "Month",
-# ]
+logger = logging.getLogger(__name__)
 
-# features_cat = [
-#     "categorieOriginal",
-#     "marqueOriginal",
-#     "typeMarqueOriginal",
-#     "nutriscoreOriginal",
-#     "origineOriginal",
-#     "conditionnementOriginal",
-#     "categorieSubstitution",
-#  #  "marqueSubstitution",
-#     "typeMarqueSubstitution",
-#  #  "nutriscoreSubstitution",
-#     "origineSubstitution",
-#  #  "estBioSubstitution",
-# #  "conditionnementSubstitution",
-#     "Day_of_week_name",
-# ]
+def define_target(df: pd.DataFrame, target_col: str = "estAcceptee_bin") -> pd.Series:
+    """
+    Define target variable.
+    """
+    logger.info("PROCESS DATA : Defining target variable '%s' | input shape=%s", target_col, df.shape)
+    return df[target_col]
 
-# X = transactions_avec_substitution[features_num + features_cat]
 
-# # 3) Split temporel AVANT fit du préprocessing
-# cutoff_idx = int(len(transactions_avec_substitution) * 0.8)
-# X_train_raw, X_test_raw = X.iloc[:cutoff_idx], X.iloc[cutoff_idx:]
-# y_train, y_test = y.iloc[:cutoff_idx], y.iloc[cutoff_idx:]
-                                              
-# # 4) Imputation des valeurs nulles et encodage des variables catégorielles
-# numeric_transformer = Pipeline(
-#     steps=[
-#         ("imputer", SimpleImputer(strategy="median")),
-#         ("scaler", StandardScaler()),
-#     ]
-# )
-# categorical_transformer = Pipeline(
-#     steps=[
-#         ("imputer", SimpleImputer(strategy="most_frequent")),
-#         ("onehot", OneHotEncoder(handle_unknown='ignore')),
-#     ]
-# )
-# preprocessor = ColumnTransformer(
-#     transformers=[
-#         ("num", numeric_transformer, features_num),
-#         ("cat", categorical_transformer, features_cat),
-#     ]
-# )
+def get_feature_lists() -> Tuple[List[str], List[str]]:
+    """
+    Return numerical and categorical feature lists.
+    """
+    features_num = [
+        "DiffPrix",
+        "MemeMarque",
+        "MemeNutriscore",
+        "MemeBio",
+        "prixOriginal",
+        "MemeConditionnement",
+        "MemeTypeMarque",
+        "estBioOriginal",
+        "Month",
+    ]
 
-# # Fit du preprocessing sur le train et transform le test
-# X_train = preprocessor.fit_transform(X_train_raw)
-# X_test = preprocessor.transform(X_test_raw)
+    features_cat = [
+        "categorieOriginal",
+        "marqueOriginal",
+        "typeMarqueOriginal",
+        "nutriscoreOriginal",
+        "origineOriginal",
+        "conditionnementOriginal",
+        "categorieSubstitution",
+        "typeMarqueSubstitution",
+        "origineSubstitution",
+        "Day_of_week_name",
+    ]
+    logger.info("PROCESS DATA : Feature lists created | num=%s | cat=%s",
+        len(features_num),
+        len(features_cat),
+    )
+    return features_num, features_cat
+
+
+def select_features(df: pd.DataFrame, features_num: List[str], features_cat: List[str]) -> pd.DataFrame:
+    """
+    Select feature columns from dataframe.
+    """
+    X = df[features_num + features_cat]
+    logger.info("PROCESS DATA : Features selected | output shape=%s", X.shape)
+    
+    return X
+
+
+def temporal_train_test_split(X: pd.DataFrame,y: pd.Series,train_ratio: float = 0.8)-> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+    """
+    Perform temporal split (no shuffling).
+    """
+    cutoff_idx = int(len(X) * train_ratio)
+
+    X_train = X.iloc[:cutoff_idx]
+    X_test = X.iloc[cutoff_idx:]
+
+    y_train = y.iloc[:cutoff_idx]
+    y_test = y.iloc[cutoff_idx:]
+    
+    logger.info(
+        "PROCESS DATA : Split done | "
+        "X_train=%s | X_test=%s | y_train=%s | y_test=%s",
+        X_train.shape,
+        X_test.shape,
+        y_train.shape,
+        y_test.shape,
+    )
+    
+    return X_train, X_test, y_train, y_test
+
+
+def build_preprocessor(features_num: List[str],features_cat: List[str],) -> ColumnTransformer:
+    """
+    Build preprocessing pipeline.
+    """
+    logger.info(
+        "PROCESS DATA : Start building preprocessing pipeline | "
+        "num_features=%s | cat_features=%s",
+        len(features_num),
+        len(features_cat),
+    )
+    numeric_transformer = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
+        ]
+    )
+
+    categorical_transformer = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("onehot", OneHotEncoder(handle_unknown="ignore")),
+        ]
+    )
+
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("num", numeric_transformer, features_num),
+            ("cat", categorical_transformer, features_cat),
+        ]
+    )
+
+    return preprocessor
+
+
+def fit_transform_preprocessor(preprocessor: ColumnTransformer, X_train: pd.DataFrame, X_test: pd.DataFrame,) -> Tuple[pd.DataFrame, pd.DataFrame, ColumnTransformer]:
+    """
+    Fit preprocessing on train set and transform train & test.
+    """
+    X_train_transformed = preprocessor.fit_transform(X_train)
+    X_test_transformed = preprocessor.transform(X_test)
+    logger.info(
+        "PROCESS DATA : Preprocessing completed | "
+        "X_train_transformed=%s | X_test_transformed=%s",
+        X_train_transformed.shape,
+        X_test_transformed.shape,
+    )
+    
+    return X_train_transformed, X_test_transformed, preprocessor
+
 

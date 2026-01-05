@@ -143,23 +143,30 @@ def dump_table_into_bq(df: pd.DataFrame, project_id: str, dataset_id: str, table
     table_ref = f"{project_id}.{dataset_id}.{table_name}"
     dataset_ref = f"{project_id}.{dataset_id}"
 
-    logger.info("Starting dump to BigQuery: %s", table_ref)
+    logger.info("DUMP DATA : Starting dump to BigQuery: %s", table_ref)
 
     client = bigquery.Client(project=project_id)
 
     # Check or create dataset
     try:
         client.get_dataset(dataset_ref)
-        logger.info("Dataset %s already exists", dataset_ref)
+        logger.info("DUMP DATA : Dataset %s already exists", dataset_ref)
     except NotFound:
-        logger.warning("Dataset %s not found. Creating it...", dataset_ref)
+        logger.warning("DUMP DATA : Dataset %s not found. Creating it...", dataset_ref)
         dataset = bigquery.Dataset(dataset_ref)
         dataset.location = "EU"  # Change to "US" if needed
         client.create_dataset(dataset)
-        logger.info("Dataset %s created", dataset_ref)
+        logger.info("DUMP DATA : Dataset %s created", dataset_ref)
 
     # Load the table
-    logger.info("Loading data into BigQuery table %s (%d rows)", table_ref, len(df))
-    job = client.load_table_from_dataframe(df, table_ref)
-    job.result()
-    logger.info("Dump to BigQuery completed successfully for table %s", table_ref)
+    logger.info("DUMP DATA : Droping table if exists and loading data into BigQuery table %s (%d rows)", table_ref, len(df))
+    job_config = bigquery.LoadJobConfig(
+        write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE
+    )
+    load_job = client.load_table_from_dataframe(
+        df,
+        table_ref,
+        job_config=job_config,
+    )
+    load_job.result()
+    logger.info("DUMP DATA : Dump to BigQuery completed successfully for table %s", table_ref)

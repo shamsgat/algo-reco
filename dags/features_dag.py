@@ -1,6 +1,6 @@
 # dags/features_dag.py
 """
-ML data ingestion DAG.
+ML data features engineering DAG.
 
 This DAG loads CSV files for the tables products, substitutions, and transactions
 from GCS and ingests them into BigQuery.
@@ -17,7 +17,7 @@ from scripts.features import *
     schedule="@daily",
     doc_md=__doc__,
     default_args={"owner": "ML", "retries": 3},
-    tags=["ml", "features"],
+    tags=["ml", "features"]
 )
 
 def features_dag():
