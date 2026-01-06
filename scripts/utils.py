@@ -1,8 +1,13 @@
+import json
 import logging
 import pandas as pd
 import gcsfs
 from google.cloud import bigquery
 from google.api_core.exceptions import NotFound
+import sklearn
+from sklearn.base import BaseEstimator
+from sklearn.compose import ColumnTransformer
+import joblib
 
 # Logger configuration
 logging.basicConfig(
@@ -13,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 def load_data_gcs(gcs_path: str) -> pd.DataFrame:
     """
-    Load a CSV or JSON file from Google Cloud Storage into a pandas DataFrame.
+    Load a CSV | JSON  or Joblib file from Google Cloud Storage into a pandas DataFrame.
 
     Parameters
     ----------
@@ -25,29 +30,55 @@ def load_data_gcs(gcs_path: str) -> pd.DataFrame:
     pd.DataFrame
         Loaded data
     """
-    logger.info("Starting GCS load: %s", gcs_path)
+    logger.info("LOAD DATA : Starting GCS load: %s", gcs_path)
 
     fs = gcsfs.GCSFileSystem()
 
+    # Check if the file exists
     if not fs.exists(gcs_path):
-        logger.error("GCS path does not exist: %s", gcs_path)
-        raise FileNotFoundError(f"GCS path does not exist: {gcs_path}")
-
+        logger.error("LOAD DATA : GCS path does not exist: %s", gcs_path)
+        raise FileNotFoundError(f"LOAD DATA : GCS path does not exist: {gcs_path}")
+    # CSV
     if gcs_path.endswith(".csv"):
-        logger.info("Detected CSV file")
+        logger.info("LOAD DATA : Detected CSV file")
         data = pd.read_csv(gcs_path)
+    # JSON
     elif gcs_path.endswith(".json"):
-        logger.info("Detected JSON file")
-        data = pd.read_json(gcs_path, lines=True)
-    else:
-        logger.error("Unsupported file format for path: %s", gcs_path)
-        raise ValueError("Unsupported file format. Only CSV and JSON are supported.")
+        logger.info("LOAD DATA : Detected JSON file")
+        with fs.open(gcs_path, "r") as f:
+            content = json.load(f)
 
-    logger.info("Load completed successfully (%d rows)", len(data))
+        # Dict → config
+        if isinstance(content, dict):
+            logger.info("LOAD DATA : JSON parsed as dict (config file)")
+            data = content
+
+        # List → dataset
+        elif isinstance(content, list):
+            logger.info("JSON parsed as list (dataset)")
+            data = pd.DataFrame(content)
+
+        else:
+            logger.error("LOAD DATA : Unsupported JSON structure in %s", gcs_path)
+            raise ValueError("LOAD DATA : Unsupported JSON structure")
+    
+    # Joblib (for sklearn objects)
+    elif gcs_path.endswith(".joblib"):
+        import joblib
+        logger.info("LOAD DATA : Detected Joblib file")
+        with fs.open(gcs_path, "rb") as f:
+            data = joblib.load(f)
+        logger.info("LOAD DATA : Joblib object loaded: %s", type(data).__name__)
+    
+    else:
+        logger.error("LOAD DATA : Unsupported file format for path: %s", gcs_path)
+        raise ValueError("LOAD DATA : Unsupported file format. Only CSV, JSON & Joblib are supported.")
+
+    logger.info("LOAD DATA : Load completed successfully (%d rows)", len(data))
     return data
 
 
-def dump_data_gcs(data: pd.DataFrame | dict | list, path: str, filename: str) -> None:
+def dump_data_gcs(data: pd.DataFrame | dict | list | BaseEstimator, path: str, filename: str) -> None:
     """
     Dump data to GCS.
     - DataFrame -> CSV
@@ -55,38 +86,49 @@ def dump_data_gcs(data: pd.DataFrame | dict | list, path: str, filename: str) ->
 
     Parameters
     ----------
-    data : pd.DataFrame | dict | list
-        Data to dump
+    data : pd.DataFrame | dict | list | sklearn object
     path : str
         GCS directory path (e.g., gs://bucket/folder/subfolder)
     filename : str
         File name without extension
     """
-    logger.info("Starting dump to GCS: %s/%s", path, filename)
+    logger.info("DUMP DATA : Starting dump to GCS: %s/%s", path, filename)
 
     fs = gcsfs.GCSFileSystem()
 
     if not fs.exists(path):
-        logger.info("Path does not exist. Creating path: %s", path)
+        logger.info("DUMP DATA : Path does not exist. Creating path: %s", path)
         fs.mkdirs(path)
     else:
-        logger.info("Path already exists: %s", path)
+        logger.info("DUMP DATA : Path already exists: %s", path)
 
+    # Dump DataFrame as CSV
     if isinstance(data, pd.DataFrame):
         output_path = f"{path}/{filename}.csv"
-        logger.info("Detected DataFrame with %d rows. Writing CSV to %s", len(data), output_path)
+        logger.info("DUMP DATA : Detected DataFrame with %d rows. Writing CSV to %s", len(data), output_path)
         data.to_csv(output_path, index=False)
+    
+    # Dump dict or list as JSON
     elif isinstance(data, (dict, list)):
-        output_path = f"{path}/{filename}.txt"
-        logger.info("Detected JSON-like data (%s). Writing TXT to %s", type(data).__name__, output_path)
+        output_path = f"{path}/{filename}.json"
+        logger.info("DUMP DATA : Detected JSON-like data (%s). Writing JSON to %s", type(data).__name__, output_path)
         with fs.open(output_path, "w") as f:
             import json
             json.dump(data, f, ensure_ascii=False, indent=2)
+            
+    # Sklearn objects (ColumnTransformer, Pipeline, Model)
+    elif isinstance(data, (BaseEstimator, ColumnTransformer)):
+        output_path = f"{path}/{filename}.joblib"
+        logger.info("DUMP DATA : Sklearn object detected (%s). Writing joblib to %s",
+            type(data).__name__, output_path
+        )
+        with fs.open(output_path, "wb") as f:
+            joblib.dump(data, f)
     else:
-        logger.error("Unsupported data type: %s", type(data))
-        raise TypeError("Unsupported data type. Expected pandas DataFrame, dict, or list.")
+        logger.error("DUMP DATA : Unsupported data type: %s", type(data))
+        raise TypeError("DUMP DATA : Unsupported data type. Expected pandas DataFrame, dict, list or sklearn object.")
 
-    logger.info("Dump to GCS completed successfully")
+    logger.info("DUMP DATA : Dump to GCS completed successfully")
 
 
 def load_data_bq(project_id: str, dataset_id: str, table_name: str) -> pd.DataFrame:
@@ -108,19 +150,19 @@ def load_data_bq(project_id: str, dataset_id: str, table_name: str) -> pd.DataFr
         Loaded data
     """
     table_ref = f"{project_id}.{dataset_id}.{table_name}"
-    logger.info("Starting BigQuery load: %s", table_ref)
+    logger.info("LOAD DATA : Starting BigQuery load: %s", table_ref)
 
     client = bigquery.Client(project=project_id)
 
     try:
         table = client.get_table(table_ref)
-        logger.info("Table found (%d rows, %d columns)", table.num_rows, len(table.schema))
+        logger.info("LOAD DATA : Table found (%d rows, %d columns)", table.num_rows, len(table.schema))
     except NotFound:
-        logger.error("Table does not exist: %s", table_ref)
-        raise FileNotFoundError(f"BigQuery table does not exist: {table_ref}")
+        logger.error("LOAD DATA : Table does not exist: %s", table_ref)
+        raise FileNotFoundError(f"LOAD DATA : BigQuery table does not exist: {table_ref}")
 
     df = client.list_rows(table).to_dataframe()
-    logger.info("BigQuery load completed successfully (%d rows)", len(df))
+    logger.info("LOAD DATA : BigQuery load completed successfully (%d rows)", len(df))
     return df
 
 

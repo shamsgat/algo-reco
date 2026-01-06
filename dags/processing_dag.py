@@ -4,13 +4,15 @@ ML data processing data DAG.
 
 XXXX ????
 """
-
+import logging
 from airflow.sdk import dag, task
 from pendulum import datetime
 from scripts.ingestion import Ingestion
 from scripts.utils import load_data_bq, dump_table_into_bq, dump_data_gcs,load_data_gcs
 from scripts.features import *
 from scripts.processing import *
+
+logger = logging.getLogger(__name__)
 
 @dag(
     start_date=datetime(2025, 1, 1),
@@ -41,9 +43,8 @@ def processing_dag():
     
     @task
     def preprocessing():
-        features_dict = load_data_gcs("gs://algo_reco/features/train/features.txt")
-        print(f'features_dict = {features_dict}')
-        print(features_dict.type)
+        features_dict = load_data_gcs("gs://algo_reco/features/train/features.json")
+        logger.info(f'PROCESSING : features_dict = {features_dict}')
         X_train = load_data_gcs("gs://algo_reco/features/train/x_train.csv")
         X_test = load_data_gcs("gs://algo_reco/features/train/x_test.csv")
         preprocessor = build_preprocessor(features_dict["numerical"],features_dict["categorical"])
@@ -57,7 +58,12 @@ def processing_dag():
     project_id = ingestion.project_id
     dataset_id = ingestion.dataset_id
     features_table_name = "features_dataset"
-    train_test_split(features_table_name, project_id, dataset_id)  
+    # Task instantiation
+    split_task = train_test_split(features_table_name, project_id, dataset_id)
+    preprocess_task = preprocessing()
+
+    # Dependency
+    split_task >> preprocess_task
     
 # Instantiate the DAG
 processing_dag()

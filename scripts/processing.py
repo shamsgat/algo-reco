@@ -133,7 +133,5 @@ def fit_transform_preprocessor(preprocessor: ColumnTransformer, X_train: pd.Data
         X_train_transformed.shape,
         X_test_transformed.shape,
     )
-    
-    return X_train_transformed, X_test_transformed, preprocessor
 
-
+    return pd.DataFrame(X_train_transformed), pd.DataFrame(X_test_transformed), preprocessor
