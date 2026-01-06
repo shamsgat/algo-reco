@@ -42,6 +42,7 @@ def load_data_gcs(gcs_path: str) -> pd.DataFrame:
     if gcs_path.endswith(".csv"):
         logger.info("LOAD DATA : Detected CSV file")
         data = pd.read_csv(gcs_path)
+        logger.info("LOAD DATA : Load CSV completed successfully (%d rows)", len(data))
     # JSON
     elif gcs_path.endswith(".json"):
         logger.info("LOAD DATA : Detected JSON file")
@@ -52,11 +53,13 @@ def load_data_gcs(gcs_path: str) -> pd.DataFrame:
         if isinstance(content, dict):
             logger.info("LOAD DATA : JSON parsed as dict (config file)")
             data = content
+            logger.info("LOAD DATA : Load JSON completed successfully (dict with %d keys)", len(data))
 
         # List → dataset
         elif isinstance(content, list):
             logger.info("JSON parsed as list (dataset)")
             data = pd.DataFrame(content)
+            logger.info("LOAD DATA : Load JSON completed successfully (%d rows)", len(data))
 
         else:
             logger.error("LOAD DATA : Unsupported JSON structure in %s", gcs_path)
@@ -64,17 +67,15 @@ def load_data_gcs(gcs_path: str) -> pd.DataFrame:
     
     # Joblib (for sklearn objects)
     elif gcs_path.endswith(".joblib"):
-        import joblib
         logger.info("LOAD DATA : Detected Joblib file")
         with fs.open(gcs_path, "rb") as f:
             data = joblib.load(f)
-        logger.info("LOAD DATA : Joblib object loaded: %s", type(data).__name__)
+        logger.info("LOAD DATA : Load Joblib completed successfully: %s", type(data).__name__)
     
     else:
         logger.error("LOAD DATA : Unsupported file format for path: %s", gcs_path)
         raise ValueError("LOAD DATA : Unsupported file format. Only CSV, JSON & Joblib are supported.")
 
-    logger.info("LOAD DATA : Load completed successfully (%d rows)", len(data))
     return data
 
 

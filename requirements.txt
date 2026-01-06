@@ -9,3 +9,9 @@ dotenv
 pandas-gbq
 pendulum
 pylance
+hyperopt
+xgboost
+lightgbm
+catboost
+scipy
+numpy

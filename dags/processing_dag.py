@@ -2,7 +2,9 @@
 """
 ML data processing data DAG.
 
-XXXX ????
+This DAG handles the data processing steps including train/test split and preprocessing.
+It loads the features dataset from BigQuery, performs temporal train/test split,
+applies preprocessing, and stores the processed datasets and preprocessor back to GCS.
 """
 import logging
 from airflow.sdk import dag, task
