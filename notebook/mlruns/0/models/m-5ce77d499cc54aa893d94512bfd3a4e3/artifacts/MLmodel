@@ -1,0 +1,21 @@
+artifact_path: /home/eric/snap/algo-reco/notebook/mlruns/0/models/m-5ce77d499cc54aa893d94512bfd3a4e3/artifacts
+flavors:
+  lightgbm:
+    code: null
+    data: model.pkl
+    lgb_version: 4.6.0
+    model_class: lightgbm.sklearn.LGBMRanker
+  python_function:
+    data: model.pkl
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.12.3
+mlflow_version: 3.8.1
+model_id: m-5ce77d499cc54aa893d94512bfd3a4e3
+model_size_bytes: 143789
+model_uuid: m-5ce77d499cc54aa893d94512bfd3a4e3
+prompts: null
+run_id: baeb10d0fd944f8582f1b4ddbce7d2fb
+utc_time_created: '2026-01-06 23:31:52.271098'

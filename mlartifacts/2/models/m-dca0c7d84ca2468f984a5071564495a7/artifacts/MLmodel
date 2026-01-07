@@ -1,0 +1,21 @@
+artifact_path: mlflow-artifacts:/2/models/m-dca0c7d84ca2468f984a5071564495a7/artifacts
+flavors:
+  lightgbm:
+    code: null
+    data: model.pkl
+    lgb_version: 4.6.0
+    model_class: lightgbm.sklearn.LGBMClassifier
+  python_function:
+    data: model.pkl
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.lightgbm
+    python_version: 3.12.3
+mlflow_version: 3.8.1
+model_id: m-dca0c7d84ca2468f984a5071564495a7
+model_size_bytes: 6983363
+model_uuid: m-dca0c7d84ca2468f984a5071564495a7
+prompts: null
+run_id: 9244dc81393c47b7b72bb45a1c0685ac
+utc_time_created: '2026-01-06 15:29:18.322253'

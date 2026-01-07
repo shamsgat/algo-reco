@@ -1,0 +1,501 @@
+idProduit,libelle,categorie,marque,typeMarque,nutriscore,conditionnement,origine,estBio,prix
+325000133890,Crème Fraîche Pâturages 20cl,Frais > Crémerie > Crème Fraîche,Pâturages,mdd,C,20cl,UE,False,0.95
+325054235116,Shampoing Le Petit Marseillais 250ml,Hygiène > Corps > Shampoing,Le Petit Marseillais,national,,250ml,UE,,3.12
+325049593103,Escalope Poulet Charal 4 filets (500g),Frais > Boucherie > Escalope Poulet,Charal,national,B,4 filets (500g),France,False,6.59
+325034192832,Yaourt Nature Pâturages 4x125g,Frais > Crémerie > Yaourt Nature,Pâturages,mdd,B,4x125g,UE,False,1.24
+325064139537,Lessive Liquide Ariel 1.5L,Hygiène > Maison > Lessive Liquide,Ariel,national,,1.5L,France,,10.19
+325069653287,Lessive Liquide Apta 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Apta,mdd,,3L (40 lavages),France,,7.14
+325069784801,BIO Yaourt Nature Pâturages 1kg,Frais > Crémerie > Yaourt Nature,Pâturages,mdd,C,1kg,UE,True,1.51
+325048281489,BIO Eau Plate Paquito 1.5L,Boissons > Eaux > Eau Plate,Paquito,mdd,A,1.5L,France,True,0.59
+325054303911,Biscuits Chocolat Kellogg's 500g,Épicerie > Sucré > Biscuits Chocolat,Kellogg's,national,E,500g,France,False,2.71
+325038346578,BIO Yaourt Nature Président 1kg,Frais > Crémerie > Yaourt Nature,Président,national,B,1kg,France,True,2.3
+325010310518,Yaourt Nature Top Budget 1kg,Frais > Crémerie > Yaourt Nature,Top Budget,premier_prix,A,1kg,UE,False,0.85
+325076311656,Eau Plate Volvic 6x50cl,Boissons > Eaux > Eau Plate,Volvic,national,B,6x50cl,France,False,3.41
+325087262473,Gel Douche Top Budget 250ml,Hygiène > Corps > Gel Douche,Top Budget,premier_prix,,250ml,UE,,1.41
+325032677360,Chipolatas Top Budget x6 (300g),Frais > Boucherie > Chipolatas,Top Budget,premier_prix,D,x6 (300g),UE,False,2.3
+325087234309,Shampoing Apta 500ml,Hygiène > Corps > Shampoing,Apta,mdd,,500ml,UE,,2.03
+325012191361,Steak Haché Top Budget 2x100g,Frais > Boucherie > Steak Haché,Top Budget,premier_prix,C,2x100g,UE,False,2.95
+325053462475,Beurre Doux Président 250g,Frais > Crémerie > Beurre Doux,Président,national,D,250g,Hors UE,False,2.48
+325051354278,BIO Chipolatas Le Boucher du Chef x6 (300g),Frais > Boucherie > Chipolatas,Le Boucher du Chef,premium,E,x6 (300g),France,True,6.94
+325048740164,Crème Fraîche Yoplait 50cl,Frais > Crémerie > Crème Fraîche,Yoplait,national,C,50cl,France,False,1.24
+325011280598,BIO Steak Haché Bigard 10% MG - 400g,Frais > Boucherie > Steak Haché,Bigard,national,C,10% MG - 400g,France,True,7.11
+325033158692,Gel Douche Apta 250ml,Hygiène > Corps > Gel Douche,Apta,mdd,,250ml,UE,,2.29
+325034216073,BIO Pâtes Panzani 1kg,Épicerie > Salé > Pâtes,Panzani,national,A,1kg,Hors UE,True,2.98
+325041458685,Liquide Vaisselle Ariel 500ml,Hygiène > Maison > Liquide Vaisselle,Ariel,national,,500ml,France,,1.76
+325065569816,Beurre Doux Pâturages 250g,Frais > Crémerie > Beurre Doux,Pâturages,mdd,D,250g,France,False,1.72
+325035615951,Thé Glacé Paquito 6x33cl,Boissons > Softs > Thé Glacé,Paquito,mdd,C,6x33cl,UE,False,3.11
+325062994680,Eau Gazeuse Paquito 6x50cl,Boissons > Eaux > Eau Gazeuse,Paquito,mdd,C,6x50cl,France,False,2.63
+325087214895,Jus d'Orange Lipton 33cl,Boissons > Softs > Jus d'Orange,Lipton,national,C,33cl,France,False,0.99
+325017693676,BIO Biscuits Chocolat Lu 500g,Épicerie > Sucré > Biscuits Chocolat,Lu,national,D,500g,France,True,3.99
+325079868727,Yaourt Nature Pâturages 1kg,Frais > Crémerie > Yaourt Nature,Pâturages,mdd,B,1kg,UE,False,1.3
+325014345581,Thé Glacé Paquito 1.5L,Boissons > Softs > Thé Glacé,Paquito,mdd,C,1.5L,France,False,1.46
+325060366909,Riz Bonduelle 1kg,Épicerie > Salé > Riz,Bonduelle,national,B,1kg,France,False,2.18
+325062729806,Biscuits Chocolat Chabrior 450g,Épicerie > Sucré > Biscuits Chocolat,Chabrior,mdd,D,450g,France,False,2.2
+325056464170,BIO Steak Haché Charal 2x100g,Frais > Boucherie > Steak Haché,Charal,national,C,2x100g,France,True,6.96
+325030923271,Thé Glacé Top Budget 1.5L,Boissons > Softs > Thé Glacé,Top Budget,premier_prix,C,1.5L,UE,False,1.18
+325024190496,Liquide Vaisselle Apta 500ml,Hygiène > Maison > Liquide Vaisselle,Apta,mdd,,500ml,UE,,1.35
+325091905865,Gel Douche Nivea 500ml,Hygiène > Corps > Gel Douche,Nivea,national,,500ml,France,,3.21
+325076945314,Biscuits Chocolat Kellogg's 450g,Épicerie > Sucré > Biscuits Chocolat,Kellogg's,national,E,450g,UE,False,3.16
+325035454948,Céréales Miel Nestlé 500g,Épicerie > Sucré > Céréales Miel,Nestlé,national,C,500g,France,False,2.81
+325077014363,Pâtes Barilla 1kg,Épicerie > Salé > Pâtes,Barilla,national,B,1kg,France,False,2.22
+325044313518,Eau Gazeuse Paquito 1.5L,Boissons > Eaux > Eau Gazeuse,Paquito,mdd,C,1.5L,France,False,0.42
+325034352408,Conserve Haricots Chabrior 800g,Épicerie > Salé > Conserve Haricots,Chabrior,mdd,A,800g,Hors UE,False,1.12
+325009477752,Cola Lipton 33cl,Boissons > Softs > Cola,Lipton,national,D,33cl,UE,False,0.88
+325029413186,Eau Plate Vittel 1.5L,Boissons > Eaux > Eau Plate,Vittel,national,A,1.5L,France,False,0.55
+325090913341,Liquide Vaisselle Apta 750ml,Hygiène > Maison > Liquide Vaisselle,Apta,mdd,,750ml,France,,1.23
+325049361832,Cola Paquito 1.5L,Boissons > Softs > Cola,Paquito,mdd,E,1.5L,UE,False,1.59
+325074648877,Pâtes Chabrior 1kg,Épicerie > Salé > Pâtes,Chabrior,mdd,A,1kg,UE,False,1.51
+325099049027,Chipolatas Pâturages x6 (300g),Frais > Boucherie > Chipolatas,Pâturages,mdd,E,x6 (300g),France,False,3.25
+325055125674,Thé Glacé Paquito 33cl,Boissons > Softs > Thé Glacé,Paquito,mdd,C,33cl,Hors UE,False,0.66
+325008760385,Steak Haché Pâturages 10% MG - 400g,Frais > Boucherie > Steak Haché,Pâturages,mdd,D,10% MG - 400g,Hors UE,False,4.1
+325071093248,Gel Douche Apta 500ml,Hygiène > Corps > Gel Douche,Apta,mdd,,500ml,France,,2.1
+325027484677,Steak Haché Pâturages 2x100g,Frais > Boucherie > Steak Haché,Pâturages,mdd,C,2x100g,France,False,3.94
+325046584044,Shampoing Apta 250ml,Hygiène > Corps > Shampoing,Apta,mdd,,250ml,France,,2.28
+325053396360,Shampoing Dove 500ml,Hygiène > Corps > Shampoing,Dove,national,,500ml,France,,2.97
+325002895171,Eau Gazeuse Paquito 6x1.5L,Boissons > Eaux > Eau Gazeuse,Paquito,mdd,C,6x1.5L,UE,False,2.55
+325096158657,BIO Beurre Doux Danone 250g,Frais > Crémerie > Beurre Doux,Danone,national,D,250g,UE,True,3.27
+325022219693,Jus d'Orange Paquito 33cl,Boissons > Softs > Jus d'Orange,Paquito,mdd,D,33cl,France,False,0.69
+325082175946,Riz Barilla 1kg,Épicerie > Salé > Riz,Barilla,national,C,1kg,France,False,2.33
+325090974395,Liquide Vaisselle L'Arbre Vert 750ml,Hygiène > Maison > Liquide Vaisselle,L'Arbre Vert,premium,,750ml,France,,2.29
+325004709521,Conserve Haricots Chabrior 400g,Épicerie > Salé > Conserve Haricots,Chabrior,mdd,B,400g,UE,False,1.05
+325042474517,Eau Plate Paquito 6x50cl,Boissons > Eaux > Eau Plate,Paquito,mdd,A,6x50cl,UE,False,2.57
+325060481754,Conserve Haricots Barilla 800g,Épicerie > Salé > Conserve Haricots,Barilla,national,B,800g,UE,False,1.32
+325093174612,BIO Thé Glacé Paquito 6x33cl,Boissons > Softs > Thé Glacé,Paquito,mdd,C,6x33cl,UE,True,3.73
+325086926179,Escalope Poulet Top Budget 4 filets (500g),Frais > Boucherie > Escalope Poulet,Top Budget,premier_prix,B,4 filets (500g),UE,False,3.57
+325071390053,BIO Chipolatas Selection Boucher x6 (300g),Frais > Boucherie > Chipolatas,Selection Boucher,premium,D,x6 (300g),France,True,7.96
+325002053950,Riz Panzani 500g,Épicerie > Salé > Riz,Panzani,national,A,500g,France,False,1.11
+325089178390,BIO Cola Lipton 33cl,Boissons > Softs > Cola,Lipton,national,E,33cl,France,True,1.32
+325071159212,Gel Douche Bioderma 250ml,Hygiène > Corps > Gel Douche,Bioderma,premium,,250ml,France,,3.99
+325018367365,Eau Gazeuse San Pellegrino 6x50cl,Boissons > Eaux > Eau Gazeuse,San Pellegrino,premium,C,6x50cl,France,False,4.42
+325052809885,BIO Thé Glacé Fever Tree 33cl,Boissons > Softs > Thé Glacé,Fever Tree,premium,C,33cl,France,True,1.53
+325051983273,Liquide Vaisselle Skip 750ml,Hygiène > Maison > Liquide Vaisselle,Skip,national,,750ml,France,,1.84
+325022961201,Shampoing Top Budget 500ml,Hygiène > Corps > Shampoing,Top Budget,premier_prix,,500ml,Hors UE,,1.46
+325099102290,BIO Confiture Fraise Chabrior 370g,Épicerie > Sucré > Confiture Fraise,Chabrior,mdd,C,370g,France,True,2.03
+325024451076,BIO Beurre Doux Michel et Augustin 250g,Frais > Crémerie > Beurre Doux,Michel et Augustin,premium,D,250g,France,True,4.31
+325006071596,Céréales Miel Kellogg's 500g,Épicerie > Sucré > Céréales Miel,Kellogg's,national,D,500g,UE,False,2.74
+325097516136,Lessive Liquide Apta 1.5L,Hygiène > Maison > Lessive Liquide,Apta,mdd,,1.5L,Hors UE,,7.21
+325018188355,Shampoing Nivea 500ml,Hygiène > Corps > Shampoing,Nivea,national,,500ml,France,,3.17
+325077997995,Pâtes Top Budget 500g,Épicerie > Salé > Pâtes,Top Budget,premier_prix,C,500g,UE,False,0.56
+325058147700,Jus d'Orange Top Budget 33cl,Boissons > Softs > Jus d'Orange,Top Budget,premier_prix,D,33cl,Hors UE,False,0.49
+325007935978,Thé Glacé Coca-Cola 33cl,Boissons > Softs > Thé Glacé,Coca-Cola,national,C,33cl,France,False,0.98
+325077889255,Steak Haché Bigard 2x100g,Frais > Boucherie > Steak Haché,Bigard,national,D,2x100g,France,False,4.9
+325018644925,Liquide Vaisselle Ariel 750ml,Hygiène > Maison > Liquide Vaisselle,Ariel,national,,750ml,UE,,1.64
+325068505423,Riz Bonduelle 500g,Épicerie > Salé > Riz,Bonduelle,national,B,500g,UE,False,1.24
+325088059296,Gel Douche Weleda 250ml,Hygiène > Corps > Gel Douche,Weleda,premium,,250ml,France,,4.01
+325053794738,Pâtes Bonduelle 1kg,Épicerie > Salé > Pâtes,Bonduelle,national,A,1kg,France,False,1.96
+325075818141,Eau Gazeuse Badoit Rouge 6x50cl,Boissons > Eaux > Eau Gazeuse,Badoit Rouge,premium,C,6x50cl,France,False,4.37
+325006068536,Eau Plate Evian 6x50cl,Boissons > Eaux > Eau Plate,Evian,national,A,6x50cl,France,False,3.88
+325020472779,BIO Cola Paquito 33cl,Boissons > Softs > Cola,Paquito,mdd,D,33cl,UE,True,0.94
+325061434103,BIO Beurre Doux Pâturages 250g,Frais > Crémerie > Beurre Doux,Pâturages,mdd,E,250g,Hors UE,True,2.48
+325093246095,Gel Douche Dove 250ml,Hygiène > Corps > Gel Douche,Dove,national,,250ml,France,,3.08
+325088067065,Biscuits Chocolat Lu 450g,Épicerie > Sucré > Biscuits Chocolat,Lu,national,E,450g,France,False,3.03
+325072217043,BIO Riz Bonduelle 1kg,Épicerie > Salé > Riz,Bonduelle,national,A,1kg,UE,True,3.08
+325034505415,Riz Jardin Bio 1kg,Épicerie > Salé > Riz,Jardin Bio,premium,B,1kg,UE,False,2.74
+325051154479,Eau Plate Evian 6x1.5L,Boissons > Eaux > Eau Plate,Evian,national,B,6x1.5L,Hors UE,False,3.63
+325064016582,Confiture Fraise Chabrior 370g,Épicerie > Sucré > Confiture Fraise,Chabrior,mdd,C,370g,Hors UE,False,1.65
+325090927557,Biscuits Chocolat Top Budget 500g,Épicerie > Sucré > Biscuits Chocolat,Top Budget,premier_prix,D,500g,Hors UE,False,1.46
+325039473121,BIO Beurre Doux Président 250g,Frais > Crémerie > Beurre Doux,Président,national,E,250g,UE,True,3.57
+325042258313,Biscuits Chocolat Nestlé 450g,Épicerie > Sucré > Biscuits Chocolat,Nestlé,national,D,450g,UE,False,3.03
+325052892268,Gel Douche Klorane 500ml,Hygiène > Corps > Gel Douche,Klorane,premium,,500ml,France,,4.14
+325084143842,BIO Crème Fraîche Pâturages 20cl,Frais > Crémerie > Crème Fraîche,Pâturages,mdd,C,20cl,France,True,1.18
+325090010943,BIO Crème Fraîche Michel et Augustin 50cl,Frais > Crémerie > Crème Fraîche,Michel et Augustin,premium,C,50cl,UE,True,2.44
+325064710276,Chipolatas Fleury Michon x6 (300g),Frais > Boucherie > Chipolatas,Fleury Michon,national,E,x6 (300g),France,False,4.46
+325063259532,BIO Escalope Poulet Pâturages 4 filets (500g),Frais > Boucherie > Escalope Poulet,Pâturages,mdd,B,4 filets (500g),France,True,7.11
+325074801624,Gel Douche Le Petit Marseillais 500ml,Hygiène > Corps > Gel Douche,Le Petit Marseillais,national,,500ml,France,,3.06
+325016878499,Eau Gazeuse Top Budget 6x50cl,Boissons > Eaux > Eau Gazeuse,Top Budget,premier_prix,C,6x50cl,UE,False,1.82
+325039868000,Riz Chabrior 1kg,Épicerie > Salé > Riz,Chabrior,mdd,A,1kg,France,False,1.61
+325087947055,Jus d'Orange Breizh Cola 6x33cl,Boissons > Softs > Jus d'Orange,Breizh Cola,premium,C,6x33cl,France,False,5.97
+325097289623,Lessive Liquide Paic 1.5L,Hygiène > Maison > Lessive Liquide,Paic,national,,1.5L,Hors UE,,10.03
+325068970283,Yaourt Nature Top Budget 8x125g,Frais > Crémerie > Yaourt Nature,Top Budget,premier_prix,C,8x125g,UE,False,0.93
+325049733484,BIO Eau Gazeuse Paquito 6x50cl,Boissons > Eaux > Eau Gazeuse,Paquito,mdd,C,6x50cl,Hors UE,True,3.35
+325073384842,Biscuits Chocolat Chabrior 500g,Épicerie > Sucré > Biscuits Chocolat,Chabrior,mdd,D,500g,France,False,2.19
+325071208267,Pâtes Bonduelle 500g,Épicerie > Salé > Pâtes,Bonduelle,national,B,500g,France,False,1.18
+325067240049,Pâtes Chabrior 500g,Épicerie > Salé > Pâtes,Chabrior,mdd,C,500g,Hors UE,False,0.93
+325074315274,Escalope Poulet Pâturages 2 filets,Frais > Boucherie > Escalope Poulet,Pâturages,mdd,A,2 filets,France,False,5.46
+325085161227,BIO Escalope Poulet Charal 4 filets (500g),Frais > Boucherie > Escalope Poulet,Charal,national,B,4 filets (500g),UE,True,9.97
+325045933272,Jus d'Orange Lipton 6x33cl,Boissons > Softs > Jus d'Orange,Lipton,national,D,6x33cl,UE,False,4.55
+325018785191,Eau Gazeuse Volvic 1.5L,Boissons > Eaux > Eau Gazeuse,Volvic,national,C,1.5L,UE,False,0.63
+325065676618,BIO Yaourt Nature Vrai 4x125g,Frais > Crémerie > Yaourt Nature,Vrai,premium,A,4x125g,France,True,3.29
+325004786863,Cola Belvoir 1.5L,Boissons > Softs > Cola,Belvoir,premium,D,1.5L,UE,False,3.07
+325079030673,Chipolatas Charal x6 (300g),Frais > Boucherie > Chipolatas,Charal,national,D,x6 (300g),France,False,4.28
+325053428364,Crème Fraîche Michel et Augustin 50cl,Frais > Crémerie > Crème Fraîche,Michel et Augustin,premium,C,50cl,UE,False,1.79
+325056624628,Crème Fraîche Président 50cl,Frais > Crémerie > Crème Fraîche,Président,national,C,50cl,Hors UE,False,1.4
+325088263435,Riz Panzani 1kg,Épicerie > Salé > Riz,Panzani,national,C,1kg,Hors UE,False,2.36
+325099013983,Escalope Poulet Top Budget 2 filets,Frais > Boucherie > Escalope Poulet,Top Budget,premier_prix,B,2 filets,UE,False,3.43
+325073936385,Confiture Fraise Lindt 370g,Épicerie > Sucré > Confiture Fraise,Lindt,premium,C,370g,France,False,3.19
+325096423536,Eau Plate Evian 1.5L,Boissons > Eaux > Eau Plate,Evian,national,A,1.5L,France,False,0.65
+325052287280,Liquide Vaisselle Paic 750ml,Hygiène > Maison > Liquide Vaisselle,Paic,national,,750ml,Hors UE,,1.79
+325020387509,Crème Fraîche Top Budget 20cl,Frais > Crémerie > Crème Fraîche,Top Budget,premier_prix,C,20cl,UE,False,0.6
+325040862118,Gel Douche Dove 500ml,Hygiène > Corps > Gel Douche,Dove,national,,500ml,France,,3.02
+325010166687,Escalope Poulet Pâturages 4 filets (500g),Frais > Boucherie > Escalope Poulet,Pâturages,mdd,A,4 filets (500g),UE,False,5.29
+325014890250,Yaourt Nature Pâturages 8x125g,Frais > Crémerie > Yaourt Nature,Pâturages,mdd,A,8x125g,UE,False,1.22
+325066296194,Lessive Liquide Paic 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Paic,national,,3L (40 lavages),France,,9.7
+325041212678,Liquide Vaisselle Top Budget 750ml,Hygiène > Maison > Liquide Vaisselle,Top Budget,premier_prix,,750ml,Hors UE,,0.87
+325066183982,Gel Douche Top Budget 500ml,Hygiène > Corps > Gel Douche,Top Budget,premier_prix,,500ml,Hors UE,,1.35
+325006596575,Eau Plate Vittel 6x1.5L,Boissons > Eaux > Eau Plate,Vittel,national,B,6x1.5L,France,False,3.34
+325054793564,Confiture Fraise Kellogg's 370g,Épicerie > Sucré > Confiture Fraise,Kellogg's,national,C,370g,France,False,2.49
+325088680589,Confiture Fraise Top Budget 370g,Épicerie > Sucré > Confiture Fraise,Top Budget,premier_prix,C,370g,Hors UE,False,1.16
+325056101438,Crème Fraîche Danone 50cl,Frais > Crémerie > Crème Fraîche,Danone,national,C,50cl,France,False,1.44
+325025457387,Jus d'Orange Top Budget 1.5L,Boissons > Softs > Jus d'Orange,Top Budget,premier_prix,D,1.5L,UE,False,1.15
+325082553714,Liquide Vaisselle Top Budget 500ml,Hygiène > Maison > Liquide Vaisselle,Top Budget,premier_prix,,500ml,Hors UE,,0.91
+325034125286,Shampoing Klorane 250ml,Hygiène > Corps > Shampoing,Klorane,premium,,250ml,France,,3.85
+325076772190,BIO Steak Haché Pâturages 10% MG - 400g,Frais > Boucherie > Steak Haché,Pâturages,mdd,C,10% MG - 400g,France,True,4.88
+325078819148,Jus d'Orange Paquito 6x33cl,Boissons > Softs > Jus d'Orange,Paquito,mdd,D,6x33cl,UE,False,3.12
+325029233095,Yaourt Nature Président 1kg,Frais > Crémerie > Yaourt Nature,Président,national,C,1kg,UE,False,1.85
+325012604223,Jus d'Orange Belvoir 6x33cl,Boissons > Softs > Jus d'Orange,Belvoir,premium,C,6x33cl,France,False,6.14
+325075186363,Eau Gazeuse Perrier 1.5L,Boissons > Eaux > Eau Gazeuse,Perrier,premium,C,1.5L,UE,False,0.73
+325027706324,Cola Top Budget 1.5L,Boissons > Softs > Cola,Top Budget,premier_prix,D,1.5L,Hors UE,False,1.0
+325042622189,BIO Biscuits Chocolat Chabrior 300g,Épicerie > Sucré > Biscuits Chocolat,Chabrior,mdd,D,300g,UE,True,2.66
+325094043898,Eau Gazeuse Evian 1.5L,Boissons > Eaux > Eau Gazeuse,Evian,national,C,1.5L,France,False,0.61
+325010910430,Jus d'Orange Lipton 1.5L,Boissons > Softs > Jus d'Orange,Lipton,national,C,1.5L,France,False,2.27
+325091463031,Jus d'Orange Top Budget 6x33cl,Boissons > Softs > Jus d'Orange,Top Budget,premier_prix,D,6x33cl,UE,False,2.03
+325002027588,Chipolatas Bigard x6 (300g),Frais > Boucherie > Chipolatas,Bigard,national,E,x6 (300g),UE,False,3.93
+325064814917,Biscuits Chocolat Nestlé 300g,Épicerie > Sucré > Biscuits Chocolat,Nestlé,national,E,300g,France,False,2.9
+325013800030,Jus d'Orange Coca-Cola 1.5L,Boissons > Softs > Jus d'Orange,Coca-Cola,national,D,1.5L,France,False,2.33
+325063536541,Eau Plate Paquito 1.5L,Boissons > Eaux > Eau Plate,Paquito,mdd,B,1.5L,France,False,0.45
+325049493759,Escalope Poulet Bigard 2 filets,Frais > Boucherie > Escalope Poulet,Bigard,national,B,2 filets,France,False,7.01
+325005064138,Pâtes Top Budget 1kg,Épicerie > Salé > Pâtes,Top Budget,premier_prix,A,1kg,UE,False,1.11
+325038657191,Lessive Liquide Maison Verte 1.5L,Hygiène > Maison > Lessive Liquide,Maison Verte,premium,,1.5L,UE,,11.63
+325056557431,Biscuits Chocolat Lu 300g,Épicerie > Sucré > Biscuits Chocolat,Lu,national,D,300g,Hors UE,False,2.88
+325035680442,Céréales Miel Lu 300g,Épicerie > Sucré > Céréales Miel,Lu,national,C,300g,UE,False,2.75
+325032365199,Lessive Liquide Top Budget 1.5L,Hygiène > Maison > Lessive Liquide,Top Budget,premier_prix,,1.5L,UE,,4.33
+325051070296,Cola Fever Tree 1.5L,Boissons > Softs > Cola,Fever Tree,premium,E,1.5L,France,False,2.64
+325083806578,BIO Eau Gazeuse Vittel 6x1.5L,Boissons > Eaux > Eau Gazeuse,Vittel,national,C,6x1.5L,France,True,4.6
+325040785932,BIO Eau Gazeuse Paquito 6x1.5L,Boissons > Eaux > Eau Gazeuse,Paquito,mdd,C,6x1.5L,France,True,3.58
+325065223955,BIO Riz Bonduelle 500g,Épicerie > Salé > Riz,Bonduelle,national,C,500g,Hors UE,True,1.58
+325089539264,Cola Orangina 6x33cl,Boissons > Softs > Cola,Orangina,national,E,6x33cl,Hors UE,False,4.05
+325059391725,Conserve Haricots Top Budget 400g,Épicerie > Salé > Conserve Haricots,Top Budget,premier_prix,A,400g,Hors UE,False,0.67
+325097062962,Steak Haché Charal 2x100g,Frais > Boucherie > Steak Haché,Charal,national,C,2x100g,France,False,5.22
+325043106987,Steak Haché Selection Boucher 10% MG - 400g,Frais > Boucherie > Steak Haché,Selection Boucher,premium,C,10% MG - 400g,UE,False,7.43
+325058693806,Lessive Liquide Skip 1.5L,Hygiène > Maison > Lessive Liquide,Skip,national,,1.5L,France,,8.8
+325061632945,Riz Chabrior 500g,Épicerie > Salé > Riz,Chabrior,mdd,C,500g,Hors UE,False,0.79
+325014856467,Shampoing Top Budget 250ml,Hygiène > Corps > Shampoing,Top Budget,premier_prix,,250ml,UE,,1.52
+325013736785,Riz Rummo 1kg,Épicerie > Salé > Riz,Rummo,premium,A,1kg,France,False,2.94
+325030307053,BIO Riz Barilla 500g,Épicerie > Salé > Riz,Barilla,national,B,500g,UE,True,1.46
+325027985524,Eau Gazeuse Evian 6x50cl,Boissons > Eaux > Eau Gazeuse,Evian,national,C,6x50cl,France,False,3.67
+325096910858,Eau Gazeuse Vittel 1.5L,Boissons > Eaux > Eau Gazeuse,Vittel,national,C,1.5L,France,False,0.6
+325052074466,Eau Plate Top Budget 1.5L,Boissons > Eaux > Eau Plate,Top Budget,premier_prix,B,1.5L,UE,False,0.29
+325058428241,Beurre Doux Danone 250g,Frais > Crémerie > Beurre Doux,Danone,national,E,250g,UE,False,2.63
+325053465549,Céréales Miel Lu 450g,Épicerie > Sucré > Céréales Miel,Lu,national,D,450g,UE,False,2.75
+325000743292,BIO Céréales Miel Chabrior 300g,Épicerie > Sucré > Céréales Miel,Chabrior,mdd,D,300g,France,True,2.66
+325008350583,Crème Fraîche Pâturages 50cl,Frais > Crémerie > Crème Fraîche,Pâturages,mdd,C,50cl,France,False,0.91
+325021044789,Yaourt Nature Yoplait 1kg,Frais > Crémerie > Yaourt Nature,Yoplait,national,C,1kg,France,False,1.83
+325060332309,Eau Plate Paquito 6x1.5L,Boissons > Eaux > Eau Plate,Paquito,mdd,A,6x1.5L,France,False,2.38
+325018914117,Escalope Poulet Fleury Michon 2 filets,Frais > Boucherie > Escalope Poulet,Fleury Michon,national,A,2 filets,UE,False,7.08
+325037530011,Céréales Miel Bonne Maman 300g,Épicerie > Sucré > Céréales Miel,Bonne Maman,premium,D,300g,France,False,4.04
+325059027716,Riz Rummo 500g,Épicerie > Salé > Riz,Rummo,premium,B,500g,UE,False,1.64
+325056289002,Céréales Miel Kellogg's 450g,Épicerie > Sucré > Céréales Miel,Kellogg's,national,D,450g,France,False,2.85
+325057113055,Cola Orangina 33cl,Boissons > Softs > Cola,Orangina,national,E,33cl,UE,False,1.0
+325049331637,BIO Cola Orangina 6x33cl,Boissons > Softs > Cola,Orangina,national,D,6x33cl,UE,True,5.36
+325066934654,Conserve Haricots Panzani 800g,Épicerie > Salé > Conserve Haricots,Panzani,national,B,800g,UE,False,1.44
+325028851587,Pâtes Barilla 500g,Épicerie > Salé > Pâtes,Barilla,national,C,500g,Hors UE,False,1.32
+325020438057,Conserve Haricots Top Budget 800g,Épicerie > Salé > Conserve Haricots,Top Budget,premier_prix,A,800g,UE,False,0.75
+325073598933,Liquide Vaisselle Maison Verte 750ml,Hygiène > Maison > Liquide Vaisselle,Maison Verte,premium,,750ml,France,,2.26
+325006484229,BIO Eau Plate Badoit Rouge 1.5L,Boissons > Eaux > Eau Plate,Badoit Rouge,premium,B,1.5L,France,True,0.96
+325094798515,BIO Escalope Poulet Charal 2 filets,Frais > Boucherie > Escalope Poulet,Charal,national,A,2 filets,Hors UE,True,9.87
+325085887704,Escalope Poulet Le Boucher du Chef 4 filets (500g),Frais > Boucherie > Escalope Poulet,Le Boucher du Chef,premium,A,4 filets (500g),France,False,8.69
+325061207501,Crème Fraîche Danone 20cl,Frais > Crémerie > Crème Fraîche,Danone,national,C,20cl,France,False,1.24
+325007283268,Jus d'Orange Orangina 33cl,Boissons > Softs > Jus d'Orange,Orangina,national,D,33cl,France,False,0.94
+325082100996,Céréales Miel Kellogg's 300g,Épicerie > Sucré > Céréales Miel,Kellogg's,national,C,300g,Hors UE,False,3.03
+325022239431,Thé Glacé Lipton 6x33cl,Boissons > Softs > Thé Glacé,Lipton,national,C,6x33cl,France,False,4.5
+325029955620,Cola Paquito 33cl,Boissons > Softs > Cola,Paquito,mdd,E,33cl,UE,False,0.71
+325084887256,Crème Fraîche Président 20cl,Frais > Crémerie > Crème Fraîche,Président,national,C,20cl,UE,False,1.43
+325092827229,Jus d'Orange Coca-Cola 6x33cl,Boissons > Softs > Jus d'Orange,Coca-Cola,national,C,6x33cl,France,False,3.98
+325070051844,Eau Plate Top Budget 6x50cl,Boissons > Eaux > Eau Plate,Top Budget,premier_prix,A,6x50cl,Hors UE,False,1.79
+325082723184,Confiture Fraise Nestlé 370g,Épicerie > Sucré > Confiture Fraise,Nestlé,national,C,370g,France,False,2.33
+325038862912,Confiture Fraise Lu 370g,Épicerie > Sucré > Confiture Fraise,Lu,national,C,370g,France,False,2.1
+325068650863,BIO Yaourt Nature Pâturages 4x125g,Frais > Crémerie > Yaourt Nature,Pâturages,mdd,B,4x125g,UE,True,1.79
+325026944869,Crème Fraîche Top Budget 50cl,Frais > Crémerie > Crème Fraîche,Top Budget,premier_prix,C,50cl,Hors UE,False,0.64
+325013721386,Liquide Vaisselle Skip 500ml,Hygiène > Maison > Liquide Vaisselle,Skip,national,,500ml,France,,1.93
+325002146566,Conserve Haricots Bonduelle 400g,Épicerie > Salé > Conserve Haricots,Bonduelle,national,A,400g,France,False,1.4
+325043937690,Yaourt Nature Président 8x125g,Frais > Crémerie > Yaourt Nature,Président,national,B,8x125g,Hors UE,False,1.75
+325084894769,Céréales Miel Top Budget 500g,Épicerie > Sucré > Céréales Miel,Top Budget,premier_prix,D,500g,Hors UE,False,1.63
+325058804341,Jus d'Orange Coca-Cola 33cl,Boissons > Softs > Jus d'Orange,Coca-Cola,national,D,33cl,France,False,0.94
+325037333433,Thé Glacé Belvoir 6x33cl,Boissons > Softs > Thé Glacé,Belvoir,premium,C,6x33cl,France,False,5.34
+325086780856,Eau Plate San Pellegrino 1.5L,Boissons > Eaux > Eau Plate,San Pellegrino,premium,A,1.5L,France,False,0.74
+325038663227,Eau Plate Volvic 1.5L,Boissons > Eaux > Eau Plate,Volvic,national,A,1.5L,UE,False,0.57
+325093998245,Eau Gazeuse Vittel 6x50cl,Boissons > Eaux > Eau Gazeuse,Vittel,national,C,6x50cl,France,False,3.86
+325006811492,BIO Yaourt Nature Pâturages 8x125g,Frais > Crémerie > Yaourt Nature,Pâturages,mdd,A,8x125g,Hors UE,True,1.67
+325056475705,BIO Eau Plate Volvic 6x1.5L,Boissons > Eaux > Eau Plate,Volvic,national,A,6x1.5L,France,True,4.67
+325088147435,Liquide Vaisselle Maison Verte 500ml,Hygiène > Maison > Liquide Vaisselle,Maison Verte,premium,,500ml,UE,,2.52
+325052812735,BIO Cola Paquito 6x33cl,Boissons > Softs > Cola,Paquito,mdd,E,6x33cl,UE,True,3.53
+325035186387,BIO Chipolatas Pâturages x6 (300g),Frais > Boucherie > Chipolatas,Pâturages,mdd,D,x6 (300g),UE,True,4.08
+325022031731,BIO Eau Gazeuse Evian 6x1.5L,Boissons > Eaux > Eau Gazeuse,Evian,national,C,6x1.5L,UE,True,4.99
+325083928861,BIO Cola Fever Tree 33cl,Boissons > Softs > Cola,Fever Tree,premium,E,33cl,France,True,1.56
+325036845776,Eau Gazeuse Vittel 6x1.5L,Boissons > Eaux > Eau Gazeuse,Vittel,national,C,6x1.5L,France,False,3.65
+325041969315,BIO Pâtes Chabrior 500g,Épicerie > Salé > Pâtes,Chabrior,mdd,B,500g,France,True,1.05
+325013906048,Gel Douche Bioderma 500ml,Hygiène > Corps > Gel Douche,Bioderma,premium,,500ml,France,,3.93
+325022517908,Escalope Poulet Fleury Michon 4 filets (500g),Frais > Boucherie > Escalope Poulet,Fleury Michon,national,B,4 filets (500g),France,False,7.61
+325069389833,BIO Jus d'Orange Lipton 6x33cl,Boissons > Softs > Jus d'Orange,Lipton,national,C,6x33cl,France,True,5.13
+325035590425,BIO Eau Gazeuse Volvic 6x50cl,Boissons > Eaux > Eau Gazeuse,Volvic,national,C,6x50cl,UE,True,4.55
+325010392405,BIO Biscuits Chocolat Lindt 450g,Épicerie > Sucré > Biscuits Chocolat,Lindt,premium,D,450g,France,True,5.57
+325048792069,Eau Gazeuse Top Budget 6x1.5L,Boissons > Eaux > Eau Gazeuse,Top Budget,premier_prix,C,6x1.5L,UE,False,1.82
+325000384576,BIO Escalope Poulet Fleury Michon 4 filets (500g),Frais > Boucherie > Escalope Poulet,Fleury Michon,national,A,4 filets (500g),France,True,9.47
+325093639264,Cola Paquito 6x33cl,Boissons > Softs > Cola,Paquito,mdd,E,6x33cl,France,False,2.9
+325048262925,Gel Douche Nivea 250ml,Hygiène > Corps > Gel Douche,Nivea,national,,250ml,France,,3.22
+325064472649,Shampoing Nivea 250ml,Hygiène > Corps > Shampoing,Nivea,national,,250ml,Hors UE,,2.87
+325098266570,BIO Beurre Doux Yoplait 250g,Frais > Crémerie > Beurre Doux,Yoplait,national,D,250g,France,True,3.21
+325022220644,Céréales Miel Chabrior 450g,Épicerie > Sucré > Céréales Miel,Chabrior,mdd,D,450g,Hors UE,False,2.28
+325078097339,BIO Cola Coca-Cola 1.5L,Boissons > Softs > Cola,Coca-Cola,national,E,1.5L,UE,True,2.78
+325099982795,BIO Escalope Poulet Le Boucher du Chef 2 filets,Frais > Boucherie > Escalope Poulet,Le Boucher du Chef,premium,A,2 filets,Hors UE,True,12.91
+325094695489,Gel Douche Le Petit Marseillais 250ml,Hygiène > Corps > Gel Douche,Le Petit Marseillais,national,,250ml,France,,2.99
+325034301071,Thé Glacé Lipton 1.5L,Boissons > Softs > Thé Glacé,Lipton,national,C,1.5L,France,False,2.33
+325029962914,Eau Plate Perrier 6x50cl,Boissons > Eaux > Eau Plate,Perrier,premium,B,6x50cl,France,False,4.92
+325078078235,BIO Thé Glacé Paquito 1.5L,Boissons > Softs > Thé Glacé,Paquito,mdd,C,1.5L,UE,True,2.15
+325040943533,Thé Glacé Coca-Cola 1.5L,Boissons > Softs > Thé Glacé,Coca-Cola,national,C,1.5L,UE,False,2.17
+325099795453,BIO Riz De Cecco 1kg,Épicerie > Salé > Riz,De Cecco,premium,C,1kg,France,True,3.66
+325063938276,Shampoing Le Petit Marseillais 500ml,Hygiène > Corps > Shampoing,Le Petit Marseillais,national,,500ml,UE,,2.94
+325032197199,Steak Haché Fleury Michon 10% MG - 400g,Frais > Boucherie > Steak Haché,Fleury Michon,national,D,10% MG - 400g,Hors UE,False,5.45
+325096570132,Jus d'Orange Paquito 1.5L,Boissons > Softs > Jus d'Orange,Paquito,mdd,C,1.5L,France,False,1.59
+325054946519,Riz Barilla 500g,Épicerie > Salé > Riz,Barilla,national,A,500g,France,False,1.24
+325062126796,Cola Top Budget 6x33cl,Boissons > Softs > Cola,Top Budget,premier_prix,D,6x33cl,UE,False,2.26
+325084781891,Cola Lipton 6x33cl,Boissons > Softs > Cola,Lipton,national,D,6x33cl,France,False,3.85
+325087956544,Shampoing Dove 250ml,Hygiène > Corps > Shampoing,Dove,national,,250ml,France,,2.98
+325079290490,Conserve Haricots Jardin Bio 800g,Épicerie > Salé > Conserve Haricots,Jardin Bio,premium,B,800g,UE,False,1.75
+325066372395,Riz De Cecco 1kg,Épicerie > Salé > Riz,De Cecco,premium,A,1kg,UE,False,3.03
+325044300910,Beurre Doux Top Budget 250g,Frais > Crémerie > Beurre Doux,Top Budget,premier_prix,D,250g,Hors UE,False,1.28
+325021244717,Yaourt Nature Danone 1kg,Frais > Crémerie > Yaourt Nature,Danone,national,B,1kg,UE,False,1.82
+325012863917,Biscuits Chocolat Chabrior 300g,Épicerie > Sucré > Biscuits Chocolat,Chabrior,mdd,E,300g,UE,False,2.19
+325020064256,Yaourt Nature Top Budget 4x125g,Frais > Crémerie > Yaourt Nature,Top Budget,premier_prix,C,4x125g,Hors UE,False,0.97
+325046015851,BIO Riz Rummo 1kg,Épicerie > Salé > Riz,Rummo,premium,B,1kg,France,True,3.62
+325013878293,BIO Eau Gazeuse Badoit Rouge 1.5L,Boissons > Eaux > Eau Gazeuse,Badoit Rouge,premium,C,1.5L,France,True,0.94
+325020204179,Beurre Doux Yoplait 250g,Frais > Crémerie > Beurre Doux,Yoplait,national,D,250g,UE,False,2.5
+325058273902,BIO Cola Orangina 33cl,Boissons > Softs > Cola,Orangina,national,D,33cl,France,True,1.17
+325063290927,Escalope Poulet Bigard 4 filets (500g),Frais > Boucherie > Escalope Poulet,Bigard,national,A,4 filets (500g),France,False,7.23
+325095883734,Eau Gazeuse Top Budget 1.5L,Boissons > Eaux > Eau Gazeuse,Top Budget,premier_prix,C,1.5L,UE,False,0.33
+325052735435,Lessive Liquide Ariel 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Ariel,national,,3L (40 lavages),France,,8.98
+325053492929,BIO Conserve Haricots Barilla 800g,Épicerie > Salé > Conserve Haricots,Barilla,national,A,800g,UE,True,1.84
+325000780686,Eau Plate Volvic 6x1.5L,Boissons > Eaux > Eau Plate,Volvic,national,B,6x1.5L,Hors UE,False,3.54
+325050165790,Thé Glacé Top Budget 6x33cl,Boissons > Softs > Thé Glacé,Top Budget,premier_prix,C,6x33cl,UE,False,2.29
+325071162411,Eau Gazeuse Volvic 6x1.5L,Boissons > Eaux > Eau Gazeuse,Volvic,national,C,6x1.5L,Hors UE,False,3.38
+325010385695,Escalope Poulet Le Boucher du Chef 2 filets,Frais > Boucherie > Escalope Poulet,Le Boucher du Chef,premium,B,2 filets,France,False,9.2
+325005927452,Cola Lipton 1.5L,Boissons > Softs > Cola,Lipton,national,D,1.5L,UE,False,2.05
+325088547492,Beurre Doux Michel et Augustin 250g,Frais > Crémerie > Beurre Doux,Michel et Augustin,premium,E,250g,Hors UE,False,3.28
+325063759980,BIO Riz Chabrior 500g,Épicerie > Salé > Riz,Chabrior,mdd,C,500g,UE,True,1.21
+325047813767,Eau Plate Vittel 6x50cl,Boissons > Eaux > Eau Plate,Vittel,national,B,6x50cl,France,False,3.49
+325061064628,Confiture Fraise Michel et Augustin 370g,Épicerie > Sucré > Confiture Fraise,Michel et Augustin,premium,C,370g,France,False,3.32
+325020456504,BIO Jus d'Orange Paquito 6x33cl,Boissons > Softs > Jus d'Orange,Paquito,mdd,D,6x33cl,France,True,3.59
+325044518952,BIO Crème Fraîche Pâturages 50cl,Frais > Crémerie > Crème Fraîche,Pâturages,mdd,C,50cl,UE,True,1.31
+325023216110,BIO Thé Glacé Coca-Cola 6x33cl,Boissons > Softs > Thé Glacé,Coca-Cola,national,C,6x33cl,UE,True,5.16
+325051718275,Beurre Doux Vrai 250g,Frais > Crémerie > Beurre Doux,Vrai,premium,E,250g,France,False,3.25
+325011266912,Lessive Liquide Top Budget 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Top Budget,premier_prix,,3L (40 lavages),UE,,4.74
+325052499118,Pâtes Panzani 500g,Épicerie > Salé > Pâtes,Panzani,national,B,500g,France,False,1.17
+325020850769,BIO Pâtes Bonduelle 1kg,Épicerie > Salé > Pâtes,Bonduelle,national,C,1kg,UE,True,2.59
+325065917135,Lessive Liquide Skip 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Skip,national,,3L (40 lavages),France,,9.37
+325012303477,Liquide Vaisselle Paic 500ml,Hygiène > Maison > Liquide Vaisselle,Paic,national,,500ml,UE,,1.77
+325049078515,BIO Eau Plate Badoit Rouge 6x50cl,Boissons > Eaux > Eau Plate,Badoit Rouge,premium,B,6x50cl,France,True,6.16
+325034864518,BIO Thé Glacé Breizh Cola 1.5L,Boissons > Softs > Thé Glacé,Breizh Cola,premium,C,1.5L,UE,True,3.89
+325034327560,Lessive Liquide L'Arbre Vert 3L (40 lavages),Hygiène > Maison > Lessive Liquide,L'Arbre Vert,premium,,3L (40 lavages),Hors UE,,12.29
+325057724295,Conserve Haricots Bonduelle 800g,Épicerie > Salé > Conserve Haricots,Bonduelle,national,B,800g,UE,False,1.52
+325052910867,Céréales Miel Lu 500g,Épicerie > Sucré > Céréales Miel,Lu,national,D,500g,France,False,2.79
+325073597107,BIO Biscuits Chocolat Chabrior 500g,Épicerie > Sucré > Biscuits Chocolat,Chabrior,mdd,D,500g,France,True,2.62
+325062572870,Eau Gazeuse Perrier 6x50cl,Boissons > Eaux > Eau Gazeuse,Perrier,premium,C,6x50cl,UE,False,4.82
+325052017774,Chipolatas Le Boucher du Chef x6 (300g),Frais > Boucherie > Chipolatas,Le Boucher du Chef,premium,D,x6 (300g),France,False,6.11
+325092304501,Thé Glacé Orangina 6x33cl,Boissons > Softs > Thé Glacé,Orangina,national,C,6x33cl,UE,False,4.54
+325014761742,BIO Eau Plate Volvic 1.5L,Boissons > Eaux > Eau Plate,Volvic,national,A,1.5L,France,True,0.8
+325066799840,BIO Céréales Miel Nestlé 450g,Épicerie > Sucré > Céréales Miel,Nestlé,national,D,450g,France,True,4.17
+325037573839,Chipolatas Selection Boucher x6 (300g),Frais > Boucherie > Chipolatas,Selection Boucher,premium,E,x6 (300g),France,False,5.22
+325080156193,Cola Coca-Cola 6x33cl,Boissons > Softs > Cola,Coca-Cola,national,D,6x33cl,France,False,3.91
+325028910771,Confiture Fraise Bonne Maman 370g,Épicerie > Sucré > Confiture Fraise,Bonne Maman,premium,C,370g,UE,False,3.07
+325055213760,Céréales Miel Chabrior 300g,Épicerie > Sucré > Céréales Miel,Chabrior,mdd,C,300g,UE,False,1.98
+325072081155,Liquide Vaisselle Briochin 750ml,Hygiène > Maison > Liquide Vaisselle,Briochin,premium,,750ml,UE,,2.61
+325084318848,Cola Orangina 1.5L,Boissons > Softs > Cola,Orangina,national,E,1.5L,UE,False,2.17
+325039989354,Crème Fraîche Vrai 50cl,Frais > Crémerie > Crème Fraîche,Vrai,premium,C,50cl,UE,False,1.7
+325015454470,BIO Thé Glacé Coca-Cola 1.5L,Boissons > Softs > Thé Glacé,Coca-Cola,national,C,1.5L,France,True,2.82
+325018510679,Biscuits Chocolat Bonne Maman 450g,Épicerie > Sucré > Biscuits Chocolat,Bonne Maman,premium,E,450g,France,False,3.99
+325078018204,Yaourt Nature Malo 1kg,Frais > Crémerie > Yaourt Nature,Malo,premium,A,1kg,France,False,2.41
+325024620952,BIO Cola Breizh Cola 33cl,Boissons > Softs > Cola,Breizh Cola,premium,D,33cl,France,True,1.75
+325016128463,BIO Thé Glacé Orangina 6x33cl,Boissons > Softs > Thé Glacé,Orangina,national,C,6x33cl,UE,True,4.99
+325053194337,BIO Escalope Poulet Selection Boucher 4 filets (500g),Frais > Boucherie > Escalope Poulet,Selection Boucher,premium,B,4 filets (500g),UE,True,12.93
+325049872839,BIO Escalope Poulet Le Boucher du Chef 4 filets (500g),Frais > Boucherie > Escalope Poulet,Le Boucher du Chef,premium,A,4 filets (500g),Hors UE,True,11.51
+325064187758,BIO Chipolatas Fleury Michon x6 (300g),Frais > Boucherie > Chipolatas,Fleury Michon,national,D,x6 (300g),Hors UE,True,5.39
+325090361332,Riz Jardin Bio 500g,Épicerie > Salé > Riz,Jardin Bio,premium,B,500g,France,False,1.55
+325054317350,Thé Glacé Coca-Cola 6x33cl,Boissons > Softs > Thé Glacé,Coca-Cola,national,C,6x33cl,UE,False,4.45
+325006512070,Conserve Haricots Panzani 400g,Épicerie > Salé > Conserve Haricots,Panzani,national,B,400g,France,False,1.58
+325082274954,Céréales Miel Chabrior 500g,Épicerie > Sucré > Céréales Miel,Chabrior,mdd,D,500g,UE,False,2.16
+325077959959,Lessive Liquide Briochin 1.5L,Hygiène > Maison > Lessive Liquide,Briochin,premium,,1.5L,Hors UE,,12.39
+325039500334,Riz Top Budget 500g,Épicerie > Salé > Riz,Top Budget,premier_prix,A,500g,UE,False,0.57
+325054443928,Cola Top Budget 33cl,Boissons > Softs > Cola,Top Budget,premier_prix,E,33cl,UE,False,0.45
+325055366684,Steak Haché Charal 10% MG - 400g,Frais > Boucherie > Steak Haché,Charal,national,D,10% MG - 400g,UE,False,5.74
+325031643348,BIO Yaourt Nature Danone 8x125g,Frais > Crémerie > Yaourt Nature,Danone,national,A,8x125g,UE,True,2.12
+325069385977,Thé Glacé Orangina 1.5L,Boissons > Softs > Thé Glacé,Orangina,national,C,1.5L,France,False,2.14
+325029160324,BIO Eau Plate Paquito 6x50cl,Boissons > Eaux > Eau Plate,Paquito,mdd,B,6x50cl,UE,True,3.29
+325063600412,Steak Haché Top Budget 10% MG - 400g,Frais > Boucherie > Steak Haché,Top Budget,premier_prix,D,10% MG - 400g,Hors UE,False,2.62
+325027523083,BIO Biscuits Chocolat Nestlé 300g,Épicerie > Sucré > Biscuits Chocolat,Nestlé,national,E,300g,UE,True,4.04
+325012206815,Steak Haché Selection Boucher 2x100g,Frais > Boucherie > Steak Haché,Selection Boucher,premium,D,2x100g,UE,False,6.8
+325036497189,Biscuits Chocolat Top Budget 300g,Épicerie > Sucré > Biscuits Chocolat,Top Budget,premier_prix,D,300g,Hors UE,False,1.37
+325003091436,Steak Haché Fleury Michon 2x100g,Frais > Boucherie > Steak Haché,Fleury Michon,national,C,2x100g,France,False,5.4
+325029833816,Steak Haché Le Boucher du Chef 2x100g,Frais > Boucherie > Steak Haché,Le Boucher du Chef,premium,D,2x100g,France,False,6.66
+325028246747,Biscuits Chocolat Nestlé 500g,Épicerie > Sucré > Biscuits Chocolat,Nestlé,national,E,500g,UE,False,3.06
+325018435797,Escalope Poulet Charal 2 filets,Frais > Boucherie > Escalope Poulet,Charal,national,B,2 filets,UE,False,6.52
+325057397691,BIO Conserve Haricots Rummo 400g,Épicerie > Salé > Conserve Haricots,Rummo,premium,B,400g,France,True,2.73
+325021160256,Shampoing Bioderma 250ml,Hygiène > Corps > Shampoing,Bioderma,premium,,250ml,UE,,3.79
+325034141115,Escalope Poulet Selection Boucher 4 filets (500g),Frais > Boucherie > Escalope Poulet,Selection Boucher,premium,A,4 filets (500g),UE,False,10.19
+325033027642,BIO Confiture Fraise Nestlé 370g,Épicerie > Sucré > Confiture Fraise,Nestlé,national,C,370g,UE,True,2.76
+325075011117,Céréales Miel Michel et Augustin 450g,Épicerie > Sucré > Céréales Miel,Michel et Augustin,premium,C,450g,UE,False,3.91
+325003408487,Cola Breizh Cola 1.5L,Boissons > Softs > Cola,Breizh Cola,premium,D,1.5L,Hors UE,False,2.84
+325063611284,BIO Jus d'Orange Belvoir 33cl,Boissons > Softs > Jus d'Orange,Belvoir,premium,D,33cl,UE,True,1.5
+325088967924,BIO Beurre Doux Vrai 250g,Frais > Crémerie > Beurre Doux,Vrai,premium,D,250g,UE,True,4.74
+325014651113,Eau Gazeuse Volvic 6x50cl,Boissons > Eaux > Eau Gazeuse,Volvic,national,C,6x50cl,UE,False,3.7
+325083215285,Thé Glacé Lipton 33cl,Boissons > Softs > Thé Glacé,Lipton,national,C,33cl,France,False,1.05
+325026501673,Steak Haché Bigard 10% MG - 400g,Frais > Boucherie > Steak Haché,Bigard,national,C,10% MG - 400g,France,False,5.82
+325054562841,BIO Biscuits Chocolat Lindt 300g,Épicerie > Sucré > Biscuits Chocolat,Lindt,premium,E,300g,UE,True,5.17
+325023741678,BIO Pâtes Chabrior 1kg,Épicerie > Salé > Pâtes,Chabrior,mdd,B,1kg,France,True,2.15
+325025559895,BIO Eau Gazeuse Paquito 1.5L,Boissons > Eaux > Eau Gazeuse,Paquito,mdd,C,1.5L,UE,True,0.56
+325018954738,Crème Fraîche Malo 50cl,Frais > Crémerie > Crème Fraîche,Malo,premium,C,50cl,France,False,1.91
+325002424033,BIO Céréales Miel Chabrior 450g,Épicerie > Sucré > Céréales Miel,Chabrior,mdd,C,450g,France,True,2.62
+325034240891,Jus d'Orange Orangina 1.5L,Boissons > Softs > Jus d'Orange,Orangina,national,D,1.5L,France,False,2.3
+325001851327,BIO Yaourt Nature Yoplait 4x125g,Frais > Crémerie > Yaourt Nature,Yoplait,national,C,4x125g,UE,True,2.48
+325030366254,Cola Coca-Cola 33cl,Boissons > Softs > Cola,Coca-Cola,national,D,33cl,France,False,0.89
+325028633302,Eau Plate Badoit Rouge 6x1.5L,Boissons > Eaux > Eau Plate,Badoit Rouge,premium,A,6x1.5L,France,False,4.6
+325091792025,Céréales Miel Top Budget 300g,Épicerie > Sucré > Céréales Miel,Top Budget,premier_prix,C,300g,Hors UE,False,1.56
+325056620563,Céréales Miel Top Budget 450g,Épicerie > Sucré > Céréales Miel,Top Budget,premier_prix,D,450g,UE,False,1.49
+325030341990,Thé Glacé Top Budget 33cl,Boissons > Softs > Thé Glacé,Top Budget,premier_prix,C,33cl,UE,False,0.45
+325067904227,BIO Escalope Poulet Fleury Michon 2 filets,Frais > Boucherie > Escalope Poulet,Fleury Michon,national,A,2 filets,UE,True,8.47
+325092758955,Eau Plate San Pellegrino 6x50cl,Boissons > Eaux > Eau Plate,San Pellegrino,premium,A,6x50cl,France,False,4.7
+325048177665,Biscuits Chocolat Michel et Augustin 500g,Épicerie > Sucré > Biscuits Chocolat,Michel et Augustin,premium,E,500g,France,False,3.61
+325028664649,Lessive Liquide L'Arbre Vert 1.5L,Hygiène > Maison > Lessive Liquide,L'Arbre Vert,premium,,1.5L,France,,12.94
+325076605384,BIO Riz Panzani 500g,Épicerie > Salé > Riz,Panzani,national,B,500g,France,True,1.51
+325058955296,Eau Gazeuse Evian 6x1.5L,Boissons > Eaux > Eau Gazeuse,Evian,national,C,6x1.5L,France,False,3.26
+325020981960,Biscuits Chocolat Top Budget 450g,Épicerie > Sucré > Biscuits Chocolat,Top Budget,premier_prix,D,450g,UE,False,1.58
+325057224029,Shampoing Weleda 500ml,Hygiène > Corps > Shampoing,Weleda,premium,,500ml,France,,3.9
+325023513052,BIO Crème Fraîche Danone 20cl,Frais > Crémerie > Crème Fraîche,Danone,national,C,20cl,France,True,1.72
+325074260880,BIO Eau Plate Vittel 1.5L,Boissons > Eaux > Eau Plate,Vittel,national,B,1.5L,UE,True,0.86
+325018156326,BIO Riz Chabrior 1kg,Épicerie > Salé > Riz,Chabrior,mdd,C,1kg,UE,True,1.93
+325014307536,Eau Plate San Pellegrino 6x1.5L,Boissons > Eaux > Eau Plate,San Pellegrino,premium,B,6x1.5L,Hors UE,False,4.73
+325059234268,Shampoing Klorane 500ml,Hygiène > Corps > Shampoing,Klorane,premium,,500ml,France,,4.14
+325087010415,BIO Biscuits Chocolat Nestlé 500g,Épicerie > Sucré > Biscuits Chocolat,Nestlé,national,D,500g,UE,True,4.14
+325069815287,Crème Fraîche Michel et Augustin 20cl,Frais > Crémerie > Crème Fraîche,Michel et Augustin,premium,C,20cl,UE,False,1.71
+325019905169,Yaourt Nature Président 4x125g,Frais > Crémerie > Yaourt Nature,Président,national,C,4x125g,UE,False,1.7
+325067430003,BIO Steak Haché Pâturages 2x100g,Frais > Boucherie > Steak Haché,Pâturages,mdd,D,2x100g,France,True,5.12
+325060331903,Riz Top Budget 1kg,Épicerie > Salé > Riz,Top Budget,premier_prix,B,1kg,Hors UE,False,1.01
+325075374584,BIO Confiture Fraise Kellogg's 370g,Épicerie > Sucré > Confiture Fraise,Kellogg's,national,C,370g,France,True,2.99
+325071070449,BIO Chipolatas Charal x6 (300g),Frais > Boucherie > Chipolatas,Charal,national,E,x6 (300g),France,True,5.39
+325060945449,BIO Riz Barilla 1kg,Épicerie > Salé > Riz,Barilla,national,A,1kg,France,True,2.72
+325009351187,BIO Conserve Haricots Rummo 800g,Épicerie > Salé > Conserve Haricots,Rummo,premium,A,800g,UE,True,2.52
+325042901935,Liquide Vaisselle L'Arbre Vert 500ml,Hygiène > Maison > Liquide Vaisselle,L'Arbre Vert,premium,,500ml,UE,,2.34
+325086652683,Yaourt Nature Danone 4x125g,Frais > Crémerie > Yaourt Nature,Danone,national,C,4x125g,Hors UE,False,1.81
+325057676472,Jus d'Orange Orangina 6x33cl,Boissons > Softs > Jus d'Orange,Orangina,national,C,6x33cl,UE,False,3.82
+325089413475,Yaourt Nature Yoplait 8x125g,Frais > Crémerie > Yaourt Nature,Yoplait,national,A,8x125g,France,False,1.78
+325044913421,Eau Plate Top Budget 6x1.5L,Boissons > Eaux > Eau Plate,Top Budget,premier_prix,A,6x1.5L,Hors UE,False,1.94
+325096334727,BIO Thé Glacé Lipton 1.5L,Boissons > Softs > Thé Glacé,Lipton,national,C,1.5L,UE,True,2.67
+325024111860,BIO Crème Fraîche Danone 50cl,Frais > Crémerie > Crème Fraîche,Danone,national,C,50cl,UE,True,1.77
+325012697893,Thé Glacé Fever Tree 33cl,Boissons > Softs > Thé Glacé,Fever Tree,premium,C,33cl,France,False,1.3
+325004331875,BIO Conserve Haricots Barilla 400g,Épicerie > Salé > Conserve Haricots,Barilla,national,A,400g,France,True,1.86
+325013424912,Eau Gazeuse San Pellegrino 6x1.5L,Boissons > Eaux > Eau Gazeuse,San Pellegrino,premium,C,6x1.5L,UE,False,4.89
+325010705184,BIO Steak Haché Fleury Michon 2x100g,Frais > Boucherie > Steak Haché,Fleury Michon,national,C,2x100g,UE,True,6.43
+325062044851,BIO Conserve Haricots Chabrior 400g,Épicerie > Salé > Conserve Haricots,Chabrior,mdd,B,400g,France,True,1.38
+325065435884,Gel Douche Klorane 250ml,Hygiène > Corps > Gel Douche,Klorane,premium,,250ml,France,,4.4
+325016252654,Lessive Liquide Briochin 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Briochin,premium,,3L (40 lavages),France,,13.33
+325057938970,Pâtes Panzani 1kg,Épicerie > Salé > Pâtes,Panzani,national,A,1kg,UE,False,2.33
+325030597364,Jus d'Orange Fever Tree 6x33cl,Boissons > Softs > Jus d'Orange,Fever Tree,premium,C,6x33cl,Hors UE,False,5.62
+325077397327,BIO Céréales Miel Bonne Maman 300g,Épicerie > Sucré > Céréales Miel,Bonne Maman,premium,C,300g,France,True,4.9
+325031284033,BIO Conserve Haricots Panzani 800g,Épicerie > Salé > Conserve Haricots,Panzani,national,A,800g,UE,True,1.72
+325025878444,Shampoing Bioderma 500ml,Hygiène > Corps > Shampoing,Bioderma,premium,,500ml,UE,,3.99
+325074172156,BIO Céréales Miel Lu 500g,Épicerie > Sucré > Céréales Miel,Lu,national,C,500g,UE,True,3.93
+325066670808,Thé Glacé Belvoir 1.5L,Boissons > Softs > Thé Glacé,Belvoir,premium,C,1.5L,UE,False,2.67
+325036077633,BIO Cola Orangina 1.5L,Boissons > Softs > Cola,Orangina,national,E,1.5L,Hors UE,True,2.78
+325074258591,BIO Escalope Poulet Selection Boucher 2 filets,Frais > Boucherie > Escalope Poulet,Selection Boucher,premium,B,2 filets,UE,True,12.01
+325071184254,BIO Jus d'Orange Paquito 1.5L,Boissons > Softs > Jus d'Orange,Paquito,mdd,D,1.5L,France,True,1.88
+325044856451,BIO Céréales Miel Bonne Maman 500g,Épicerie > Sucré > Céréales Miel,Bonne Maman,premium,C,500g,France,True,5.56
+325063475575,Eau Plate Badoit Rouge 6x50cl,Boissons > Eaux > Eau Plate,Badoit Rouge,premium,A,6x50cl,France,False,4.93
+325042585626,BIO Céréales Miel Lu 450g,Épicerie > Sucré > Céréales Miel,Lu,national,C,450g,UE,True,3.83
+325040733337,Jus d'Orange Belvoir 1.5L,Boissons > Softs > Jus d'Orange,Belvoir,premium,C,1.5L,France,False,2.98
+325093583749,Pâtes Jardin Bio 500g,Épicerie > Salé > Pâtes,Jardin Bio,premium,A,500g,France,False,1.7
+325045398628,Lessive Liquide Maison Verte 3L (40 lavages),Hygiène > Maison > Lessive Liquide,Maison Verte,premium,,3L (40 lavages),UE,,12.9
+325044152982,Biscuits Chocolat Kellogg's 300g,Épicerie > Sucré > Biscuits Chocolat,Kellogg's,national,D,300g,UE,False,3.18
+325013739900,BIO Céréales Miel Lu 300g,Épicerie > Sucré > Céréales Miel,Lu,national,D,300g,Hors UE,True,4.07
+325042573066,Yaourt Nature Danone 8x125g,Frais > Crémerie > Yaourt Nature,Danone,national,A,8x125g,Hors UE,False,1.93
+325057992707,Yaourt Nature Yoplait 4x125g,Frais > Crémerie > Yaourt Nature,Yoplait,national,C,4x125g,France,False,1.83
+325021354159,BIO Eau Plate Evian 1.5L,Boissons > Eaux > Eau Plate,Evian,national,B,1.5L,UE,True,0.76
+325002312110,Crème Fraîche Yoplait 20cl,Frais > Crémerie > Crème Fraîche,Yoplait,national,C,20cl,France,False,1.35
+325080123428,Céréales Miel Nestlé 300g,Épicerie > Sucré > Céréales Miel,Nestlé,national,C,300g,UE,False,2.97
+325091945757,Steak Haché Le Boucher du Chef 10% MG - 400g,Frais > Boucherie > Steak Haché,Le Boucher du Chef,premium,D,10% MG - 400g,UE,False,7.49
+325033797058,Cola Breizh Cola 6x33cl,Boissons > Softs > Cola,Breizh Cola,premium,D,6x33cl,Hors UE,False,5.7
+325084366044,Conserve Haricots Barilla 400g,Épicerie > Salé > Conserve Haricots,Barilla,national,A,400g,UE,False,1.45
+325025010587,BIO Jus d'Orange Paquito 33cl,Boissons > Softs > Jus d'Orange,Paquito,mdd,D,33cl,UE,True,0.82
+325059045990,BIO Céréales Miel Chabrior 500g,Épicerie > Sucré > Céréales Miel,Chabrior,mdd,C,500g,France,True,2.7
+325080866281,BIO Riz Rummo 500g,Épicerie > Salé > Riz,Rummo,premium,A,500g,France,True,2.08
+325047079863,BIO Conserve Haricots Chabrior 800g,Épicerie > Salé > Conserve Haricots,Chabrior,mdd,A,800g,UE,True,1.23
+325009014473,BIO Riz Panzani 1kg,Épicerie > Salé > Riz,Panzani,national,B,1kg,France,True,2.76
+325042786561,BIO Céréales Miel Nestlé 500g,Épicerie > Sucré > Céréales Miel,Nestlé,national,D,500g,France,True,4.28
+325057155868,Beurre Doux Malo 250g,Frais > Crémerie > Beurre Doux,Malo,premium,E,250g,UE,False,3.65
+325013000413,Conserve Haricots De Cecco 400g,Épicerie > Salé > Conserve Haricots,De Cecco,premium,A,400g,France,False,1.94
+325099077560,BIO Céréales Miel Lindt 450g,Épicerie > Sucré > Céréales Miel,Lindt,premium,D,450g,France,True,5.7
+325058644963,BIO Confiture Fraise Michel et Augustin 370g,Épicerie > Sucré > Confiture Fraise,Michel et Augustin,premium,C,370g,Hors UE,True,3.71
+325047223989,BIO Escalope Poulet Bigard 2 filets,Frais > Boucherie > Escalope Poulet,Bigard,national,A,2 filets,France,True,8.93
+325092487623,BIO Cola Paquito 1.5L,Boissons > Softs > Cola,Paquito,mdd,D,1.5L,France,True,2.04
+325068868785,BIO Pâtes De Cecco 1kg,Épicerie > Salé > Pâtes,De Cecco,premium,C,1kg,France,True,3.88
+325045057661,BIO Biscuits Chocolat Chabrior 450g,Épicerie > Sucré > Biscuits Chocolat,Chabrior,mdd,E,450g,Hors UE,True,3.0
+325020128400,BIO Eau Plate Perrier 6x50cl,Boissons > Eaux > Eau Plate,Perrier,premium,A,6x50cl,France,True,6.77
+325093766189,BIO Yaourt Nature Michel et Augustin 8x125g,Frais > Crémerie > Yaourt Nature,Michel et Augustin,premium,B,8x125g,France,True,3.24
+325023897432,BIO Pâtes Rummo 1kg,Épicerie > Salé > Pâtes,Rummo,premium,B,1kg,UE,True,3.48
+325067993593,BIO Eau Plate Paquito 6x1.5L,Boissons > Eaux > Eau Plate,Paquito,mdd,B,6x1.5L,France,True,3.3
+325006153701,Cola Belvoir 6x33cl,Boissons > Softs > Cola,Belvoir,premium,D,6x33cl,France,False,5.77
+325039791378,BIO Jus d'Orange Orangina 33cl,Boissons > Softs > Jus d'Orange,Orangina,national,D,33cl,France,True,1.18
+325003763882,BIO Confiture Fraise Bonne Maman 370g,Épicerie > Sucré > Confiture Fraise,Bonne Maman,premium,C,370g,France,True,4.27
+325080205869,Thé Glacé Breizh Cola 1.5L,Boissons > Softs > Thé Glacé,Breizh Cola,premium,C,1.5L,Hors UE,False,2.95
+325040655782,BIO Steak Haché Bigard 2x100g,Frais > Boucherie > Steak Haché,Bigard,national,C,2x100g,France,True,7.62
+325061632488,BIO Crème Fraîche Yoplait 20cl,Frais > Crémerie > Crème Fraîche,Yoplait,national,C,20cl,UE,True,1.57
+325016481880,BIO Thé Glacé Lipton 33cl,Boissons > Softs > Thé Glacé,Lipton,national,C,33cl,France,True,1.32
+325046420362,BIO Céréales Miel Kellogg's 450g,Épicerie > Sucré > Céréales Miel,Kellogg's,national,D,450g,France,True,4.03
+325055824301,BIO Confiture Fraise Lu 370g,Épicerie > Sucré > Confiture Fraise,Lu,national,C,370g,UE,True,3.1
+325004333353,BIO Jus d'Orange Lipton 1.5L,Boissons > Softs > Jus d'Orange,Lipton,national,D,1.5L,UE,True,2.69
+325080405612,Céréales Miel Nestlé 450g,Épicerie > Sucré > Céréales Miel,Nestlé,national,D,450g,UE,False,2.78
+325086966101,Cola Coca-Cola 1.5L,Boissons > Softs > Cola,Coca-Cola,national,E,1.5L,France,False,2.23
+325001644037,Thé Glacé Breizh Cola 33cl,Boissons > Softs > Thé Glacé,Breizh Cola,premium,C,33cl,France,False,1.23
+325066177067,BIO Thé Glacé Lipton 6x33cl,Boissons > Softs > Thé Glacé,Lipton,national,C,6x33cl,UE,True,5.51
+325095790012,Biscuits Chocolat Lu 500g,Épicerie > Sucré > Biscuits Chocolat,Lu,national,E,500g,UE,False,2.93
+325012602213,BIO Yaourt Nature Yoplait 8x125g,Frais > Crémerie > Yaourt Nature,Yoplait,national,A,8x125g,UE,True,2.15
+325098972117,Thé Glacé Fever Tree 6x33cl,Boissons > Softs > Thé Glacé,Fever Tree,premium,C,6x33cl,UE,False,5.68
+325006757123,Liquide Vaisselle Briochin 500ml,Hygiène > Maison > Liquide Vaisselle,Briochin,premium,,500ml,France,,2.28
+325020753605,BIO Eau Gazeuse San Pellegrino 6x1.5L,Boissons > Eaux > Eau Gazeuse,San Pellegrino,premium,C,6x1.5L,France,True,6.52
+325094248942,BIO Escalope Poulet Pâturages 2 filets,Frais > Boucherie > Escalope Poulet,Pâturages,mdd,A,2 filets,France,True,6.0
+325027677462,BIO Crème Fraîche Vrai 20cl,Frais > Crémerie > Crème Fraîche,Vrai,premium,C,20cl,France,True,2.13
+325098677823,Eau Gazeuse Badoit Rouge 6x1.5L,Boissons > Eaux > Eau Gazeuse,Badoit Rouge,premium,C,6x1.5L,Hors UE,False,4.42
+325054752311,BIO Eau Gazeuse Vittel 6x50cl,Boissons > Eaux > Eau Gazeuse,Vittel,national,C,6x50cl,UE,True,4.45
+325091776334,Conserve Haricots Rummo 800g,Épicerie > Salé > Conserve Haricots,Rummo,premium,A,800g,UE,False,1.99
+325069996988,BIO Steak Haché Charal 10% MG - 400g,Frais > Boucherie > Steak Haché,Charal,national,C,10% MG - 400g,France,True,7.55
+325032001867,BIO Conserve Haricots Panzani 400g,Épicerie > Salé > Conserve Haricots,Panzani,national,B,400g,France,True,1.69
+325045421854,Conserve Haricots Rummo 400g,Épicerie > Salé > Conserve Haricots,Rummo,premium,B,400g,France,False,2.04
+325042603362,BIO Eau Gazeuse Evian 1.5L,Boissons > Eaux > Eau Gazeuse,Evian,national,C,1.5L,France,True,0.82
+325072002839,BIO Eau Gazeuse Volvic 6x1.5L,Boissons > Eaux > Eau Gazeuse,Volvic,national,C,6x1.5L,France,True,4.89
+325098616342,Jus d'Orange Belvoir 33cl,Boissons > Softs > Jus d'Orange,Belvoir,premium,C,33cl,France,False,1.25
+325093326145,BIO Biscuits Chocolat Bonne Maman 500g,Épicerie > Sucré > Biscuits Chocolat,Bonne Maman,premium,E,500g,UE,True,5.36
+325021158718,BIO Crème Fraîche Président 50cl,Frais > Crémerie > Crème Fraîche,Président,national,C,50cl,Hors UE,True,1.86
+325025731609,Yaourt Nature Vrai 4x125g,Frais > Crémerie > Yaourt Nature,Vrai,premium,B,4x125g,France,False,2.19
+325073525953,Biscuits Chocolat Lindt 450g,Épicerie > Sucré > Biscuits Chocolat,Lindt,premium,D,450g,France,False,4.1
+325022560629,Escalope Poulet Selection Boucher 2 filets,Frais > Boucherie > Escalope Poulet,Selection Boucher,premium,B,2 filets,UE,False,10.02
+325089760987,Biscuits Chocolat Michel et Augustin 450g,Épicerie > Sucré > Biscuits Chocolat,Michel et Augustin,premium,D,450g,UE,False,3.92
+325022240507,BIO Pâtes Barilla 500g,Épicerie > Salé > Pâtes,Barilla,national,C,500g,Hors UE,True,1.43
+325016265496,BIO Cola Coca-Cola 33cl,Boissons > Softs > Cola,Coca-Cola,national,D,33cl,France,True,1.16
+325026632956,BIO Thé Glacé Orangina 33cl,Boissons > Softs > Thé Glacé,Orangina,national,C,33cl,UE,True,1.19
+325064019185,BIO Thé Glacé Paquito 33cl,Boissons > Softs > Thé Glacé,Paquito,mdd,C,33cl,France,True,0.89
+325010429483,BIO Crème Fraîche Michel et Augustin 20cl,Frais > Crémerie > Crème Fraîche,Michel et Augustin,premium,C,20cl,France,True,2.2
+325032838963,BIO Escalope Poulet Bigard 4 filets (500g),Frais > Boucherie > Escalope Poulet,Bigard,national,A,4 filets (500g),France,True,10.17
+325027066489,Shampoing Weleda 250ml,Hygiène > Corps > Shampoing,Weleda,premium,,250ml,UE,,3.73
+325059967256,BIO Jus d'Orange Belvoir 1.5L,Boissons > Softs > Jus d'Orange,Belvoir,premium,C,1.5L,UE,True,3.61
+325068442464,Conserve Haricots Jardin Bio 400g,Épicerie > Salé > Conserve Haricots,Jardin Bio,premium,B,400g,France,False,1.94
+325055136090,BIO Yaourt Nature Malo 8x125g,Frais > Crémerie > Yaourt Nature,Malo,premium,C,8x125g,France,True,3.0
+325066605342,Crème Fraîche Vrai 20cl,Frais > Crémerie > Crème Fraîche,Vrai,premium,C,20cl,France,False,1.78
+325064963225,Céréales Miel Lindt 500g,Épicerie > Sucré > Céréales Miel,Lindt,premium,C,500g,UE,False,3.72
+325012094477,BIO Cola Coca-Cola 6x33cl,Boissons > Softs > Cola,Coca-Cola,national,D,6x33cl,France,True,5.21
+325047712903,Thé Glacé Orangina 33cl,Boissons > Softs > Thé Glacé,Orangina,national,C,33cl,France,False,1.02
+325016049860,BIO Eau Plate Vittel 6x1.5L,Boissons > Eaux > Eau Plate,Vittel,national,A,6x1.5L,UE,True,5.02
+325085760634,Eau Plate Badoit Rouge 1.5L,Boissons > Eaux > Eau Plate,Badoit Rouge,premium,B,1.5L,France,False,0.86
+325014304913,Thé Glacé Breizh Cola 6x33cl,Boissons > Softs > Thé Glacé,Breizh Cola,premium,C,6x33cl,France,False,5.85
+325056340918,BIO Jus d'Orange Lipton 33cl,Boissons > Softs > Jus d'Orange,Lipton,national,D,33cl,France,True,1.14
+325016715605,BIO Beurre Doux Malo 250g,Frais > Crémerie > Beurre Doux,Malo,premium,E,250g,France,True,4.74
+325079318399,BIO Eau Gazeuse San Pellegrino 6x50cl,Boissons > Eaux > Eau Gazeuse,San Pellegrino,premium,C,6x50cl,France,True,6.01
+325013495647,BIO Chipolatas Bigard x6 (300g),Frais > Boucherie > Chipolatas,Bigard,national,E,x6 (300g),France,True,5.33
+325041962332,BIO Conserve Haricots Bonduelle 800g,Épicerie > Salé > Conserve Haricots,Bonduelle,national,B,800g,UE,True,1.95
+325018207066,Yaourt Nature Malo 8x125g,Frais > Crémerie > Yaourt Nature,Malo,premium,C,8x125g,France,False,2.57
+325015689109,Yaourt Nature Vrai 1kg,Frais > Crémerie > Yaourt Nature,Vrai,premium,C,1kg,France,False,2.64
+325090163994,BIO Biscuits Chocolat Lu 300g,Épicerie > Sucré > Biscuits Chocolat,Lu,national,D,300g,France,True,3.78
+325085764639,Jus d'Orange Fever Tree 33cl,Boissons > Softs > Jus d'Orange,Fever Tree,premium,C,33cl,UE,False,1.27
+325094232154,Pâtes Rummo 1kg,Épicerie > Salé > Pâtes,Rummo,premium,A,1kg,Hors UE,False,2.66
+325026168455,Yaourt Nature Michel et Augustin 1kg,Frais > Crémerie > Yaourt Nature,Michel et Augustin,premium,A,1kg,France,False,2.37
+325040871006,Yaourt Nature Vrai 8x125g,Frais > Crémerie > Yaourt Nature,Vrai,premium,B,8x125g,Hors UE,False,2.57
+325075283599,BIO Pâtes Panzani 500g,Épicerie > Salé > Pâtes,Panzani,national,C,500g,France,True,1.57
+325004528986,BIO Steak Haché Fleury Michon 10% MG - 400g,Frais > Boucherie > Steak Haché,Fleury Michon,national,C,10% MG - 400g,France,True,7.11
+325026667880,BIO Crème Fraîche Président 20cl,Frais > Crémerie > Crème Fraîche,Président,national,C,20cl,Hors UE,True,1.75
