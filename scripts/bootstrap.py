@@ -2,10 +2,11 @@
 
 from pathlib import Path
 import os
+from typing import Optional, Tuple
 from dotenv import load_dotenv
 
 
-def init_gcp_credentials():
+def init_gcp_credentials() -> Tuple[Optional[str], Optional[str]]:
     # Charge le .env
     load_dotenv()
 

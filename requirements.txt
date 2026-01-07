@@ -5,3 +5,4 @@ gcsfs
 google-cloud-bigquery
 db-dtypes
 dotenv
+pandas-gbq
