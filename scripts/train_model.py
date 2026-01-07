@@ -1,31 +1,52 @@
-# Espace d'hyperparamètres pour Hyperopt
-space = hp.choice("model_type", [
-    {
-        "type": "xgb",
-        "eta": hp.uniform("eta", 0.01, 0.3),
-        "max_depth": hp.choice("max_depth_x", [4, 6, 8, 10]),
-        "subsample": hp.uniform("subsample_x", 0.6, 1.0),
-        "colsample_bytree": hp.uniform("colsample_x", 0.5, 1.0),
-        "min_child_weight": hp.uniform("min_child_x", 1, 10),
-    },
-    {
-        "type": "lgb",
-        "learning_rate": hp.uniform("learning_rate_l", 0.01, 0.3),
-        "max_depth": hp.choice("max_depth_l", [-1, 4, 6, 8]),
-        "num_leaves": hp.choice("num_leaves_l", [31, 63, 127]),
-        "feature_fraction": hp.uniform("feature_fraction_l", 0.6, 1.0),
-        "bagging_fraction": hp.uniform("bagging_fraction_l", 0.6, 1.0),
-        "bagging_freq": hp.choice("bagging_freq_l", [0, 1, 5]),
-    },
-    {
-        "type": "cat",
-        "learning_rate": hp.uniform("learning_rate_c", 0.01, 0.3),
-        "depth": hp.choice("depth_c", [4, 6, 8, 10]),
-        "l2_leaf_reg": hp.uniform("l2_leaf_reg_c", 1, 10),
-    }
-])
+# scripts/hyperopt_utils.py
 
-# decode helpers (pour reconstruire les meilleurs modèles depuis trials)
+from hyperopt import hp, fmin, tpe, Trials, STATUS_OK
+from sklearn.metrics import roc_auc_score
+import xgboost as xgb
+import lightgbm as lgb
+from hyperopt import Trials, fmin, tpe
+from catboost import CatBoostClassifier
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+# -------------------------------
+# Hyperparameter spaces
+# -------------------------------
+def get_hyperopt_space():
+    """Return the hyperparameter search space for XGB, LGBM, CatBoost"""
+    space = hp.choice("model_type", [
+        {
+            "type": "xgb",
+            "eta": hp.uniform("eta", 0.01, 0.3),
+            "max_depth": hp.choice("max_depth_x", [4, 6, 8, 10]),
+            "subsample": hp.uniform("subsample_x", 0.6, 1.0),
+            "colsample_bytree": hp.uniform("colsample_x", 0.5, 1.0),
+            "min_child_weight": hp.uniform("min_child_x", 1, 10),
+        },
+        {
+            "type": "lgb",
+            "learning_rate": hp.uniform("learning_rate_l", 0.01, 0.3),
+            "max_depth": hp.choice("max_depth_l", [-1, 4, 6, 8]),
+            "num_leaves": hp.choice("num_leaves_l", [31, 63, 127]),
+            "feature_fraction": hp.uniform("feature_fraction_l", 0.6, 1.0),
+            "bagging_fraction": hp.uniform("bagging_fraction_l", 0.6, 1.0),
+            "bagging_freq": hp.choice("bagging_freq_l", [0, 1, 5]),
+        },
+        {
+            "type": "cat",
+            "learning_rate": hp.uniform("learning_rate_c", 0.01, 0.3),
+            "depth": hp.choice("depth_c", [4, 6, 8, 10]),
+            "l2_leaf_reg": hp.uniform("l2_leaf_reg_c", 1, 10),
+        }
+    ])
+    return space
+
+
+# -------------------------------
+# Decoding helpers
+# -------------------------------
 _xgb_opts = {"max_depth_x": [4,6,8,10]}
 _lgb_opts = {"max_depth_l": [-1,4,6,8], "num_leaves_l": [31,63,127], "bagging_freq_l": [0,1,5]}
 _cat_opts = {"depth_c": [4,6,8,10]}
@@ -62,8 +83,12 @@ def decode_cat(vals):
         "l2_leaf_reg": p.get("l2_leaf_reg_c"),
     }
 
-# construction centralisée de modèles (utilise les decode_*)
+
+# -------------------------------
+# Build model
+# -------------------------------
 def build_model_from_params(model_type, vals, random_state=42):
+    """Return a sklearn/CatBoost model from decoded hyperparameters"""
     if model_type == "xgb":
         params = decode_xgb(vals)
         return xgb.XGBClassifier(
@@ -102,21 +127,66 @@ def build_model_from_params(model_type, vals, random_state=42):
         random_state=random_state
     )
 
-# objective : utilise build_model_from_params
-def objective(params):
-    model_type = params["type"]
-    params = dict(params)
-    del params["type"]
+
+# -------------------------------
+# Objective function for Hyperopt
+# -------------------------------
+def make_objective(X_train, y_train, X_test, y_test):
+    """
+    Returns an objective function that Hyperopt can call.
+    """
+    def objective(params):
+        model_type = params["type"]
+        params = dict(params)
+        del params["type"]
+        model = build_model_from_params(model_type, params, random_state=42)
+        model.fit(X_train, y_train)
+        preds = model.predict_proba(X_test)[:, 1]
+        score = roc_auc_score(y_test, preds)
+        return {"loss": -score, "status": STATUS_OK}
+    return objective
+
+# -------------------------------
+# Return model from best parameters
+# -------------------------------
+def model_non_trained(best_params):
+    """Build model from best parameters"""
+    model_type = None
+    if best_params["model_type"] == 0:
+        model_type = "xgb"
+    elif best_params["model_type"] == 1:
+        model_type = "lgb"
+    else:
+        model_type = "cat"
+    params = dict(best_params)
+    del params["model_type"]
     model = build_model_from_params(model_type, params, random_state=42)
-    model.fit(X_train, y_train)
-    preds = model.predict_proba(X_test)[:, 1]
-    score = roc_auc_score(y_test, preds)
-    return {"loss": -score, "status": STATUS_OK}
+    return model
 
+# -------------------------------
 # Run Hyperopt
-trials = Trials()
-best = fmin(fn=objective, space=space, algo=tpe.suggest, max_evals=30, trials=trials)
+# -------------------------------
+def run_hyperopt(X_train, y_train, X_test, y_test, max_evals=30):
+    """Run Hyperopt optimization and return best parameters and trials"""
+    space = get_hyperopt_space()
+    objective = make_objective(X_train, y_train, X_test, y_test)
+    trials = Trials()
+    best_params = fmin(fn=objective, space=space, algo=tpe.suggest, max_evals=max_evals, trials=trials)
+    logger.info("Hyperopt finished!")
+    logger.info("Best parameters (raw indices): %s", best_params)
+    best_model = model_non_trained(best_params)
+    best_model.fit(X_train, y_train)
+    return best_params, trials, best_model
 
-# extra maps
-idx_to_type = {0: "xgb", 1: "lgb", 2: "cat"}
-idx_to_label = {0: "XGBOOST", 1: "LIGHTGBM", 2: "CATBOOST"}
+if __name__ == "__main__":
+    # Example usage (with dummy data)
+    import pandas as pd
+    X_train = pd.read_csv("/home/shamsgat/code/shamsgat/algo-reco/config/features_train_x_train_preprocessed.csv")
+    y_train = pd.read_csv("/home/shamsgat/code/shamsgat/algo-reco/config/features_train_y_train.csv").squeeze()
+    X_test = pd.read_csv("/home/shamsgat/code/shamsgat/algo-reco/config/features_train_x_test_preprocessed.csv")
+    y_test = pd.read_csv("/home/shamsgat/code/shamsgat/algo-reco/config/features_train_y_test.csv").squeeze()
+
+    best_params, trials = run_hyperopt(X_train, y_train, X_test, y_test)
+    print("Best parameters:", best_params)
+
+

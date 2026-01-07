@@ -1,3 +1,4 @@
+from datetime import datetime
 import json
 import logging
 import pandas as pd
@@ -8,6 +9,7 @@ import sklearn
 from sklearn.base import BaseEstimator
 from sklearn.compose import ColumnTransformer
 import joblib
+import numpy as np
 
 # Logger configuration
 logging.basicConfig(
@@ -15,6 +17,25 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
 )
 logger = logging.getLogger(__name__)
+
+def convert_for_json(obj):
+    """Convert objects to JSON-serializable types"""
+    if isinstance(obj, (np.integer, int)):
+        return int(obj)
+    elif isinstance(obj, (np.floating, float)):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, datetime):
+        return obj.isoformat()
+    elif isinstance(obj, (list, dict)):
+        # recursively convert
+        if isinstance(obj, list):
+            return [convert_for_json(i) for i in obj]
+        else:
+            return {k: convert_for_json(v) for k, v in obj.items()}
+    else:
+        return str(obj)  # fallback
 
 def load_data_gcs(gcs_path: str) -> pd.DataFrame:
     """
