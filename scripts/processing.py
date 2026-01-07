@@ -1,48 +1,137 @@
 # scripts/processing.py
+import logging
 import pandas as pd
+from typing import List, Tuple
 
-def process_transactions(produits: pd.DataFrame, 
-                         substitutions: pd.DataFrame, 
-                         transactions: pd.DataFrame) -> pd.DataFrame:
+from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
+
+logger = logging.getLogger(__name__)
+
+def define_target(df: pd.DataFrame, target_col: str = "estAcceptee_bin") -> pd.Series:
     """
-    Merge products, substitutions, and transactions
-    to create the enriched dataset with substitutions.
+    Define target variable.
     """
+    logger.info("PROCESS DATA : Defining target variable '%s' | input shape=%s", target_col, df.shape)
+    return df[target_col]
 
-    # Add suffix to distinguish original product columns
-    produits_original = produits.add_suffix('Original')
 
-    # Merge substitutions with original products
-    substitutions_produits_original = pd.merge(
-        substitutions,
-        produits_original,
-        on='idProduitOriginal',
-        how='left'
+def get_feature_lists() -> Tuple[List[str], List[str]]:
+    """
+    Return numerical and categorical feature lists.
+    """
+    features_num = [
+        "DiffPrix",
+        "MemeMarque",
+        "MemeNutriscore",
+        "MemeBio",
+        "prixOriginal",
+        "MemeConditionnement",
+        "MemeTypeMarque",
+        "estBioOriginal",
+        "Month",
+    ]
+
+    features_cat = [
+        "categorieOriginal",
+        "marqueOriginal",
+        "typeMarqueOriginal",
+        "nutriscoreOriginal",
+        "origineOriginal",
+        "conditionnementOriginal",
+        "categorieSubstitution",
+        "typeMarqueSubstitution",
+        "origineSubstitution",
+        "Day_of_week_name",
+    ]
+    logger.info("PROCESS DATA : Feature lists created | num=%s | cat=%s",
+        len(features_num),
+        len(features_cat),
+    )
+    return features_num, features_cat
+
+
+def select_features(df: pd.DataFrame, features_num: List[str], features_cat: List[str]) -> pd.DataFrame:
+    """
+    Select feature columns from dataframe.
+    """
+    X = df[features_num + features_cat]
+    logger.info("PROCESS DATA : Features selected | output shape=%s", X.shape)
+    
+    return X
+
+
+def temporal_train_test_split(X: pd.DataFrame,y: pd.Series,train_ratio: float = 0.8)-> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+    """
+    Perform temporal split (no shuffling).
+    """
+    cutoff_idx = int(len(X) * train_ratio)
+
+    X_train = X.iloc[:cutoff_idx]
+    X_test = X.iloc[cutoff_idx:]
+
+    y_train = y.iloc[:cutoff_idx]
+    y_test = y.iloc[cutoff_idx:]
+    
+    logger.info(
+        "PROCESS DATA : Split done | "
+        "X_train=%s | X_test=%s | y_train=%s | y_test=%s",
+        X_train.shape,
+        X_test.shape,
+        y_train.shape,
+        y_test.shape,
+    )
+    
+    return X_train, X_test, y_train, y_test
+
+
+def build_preprocessor(features_num: List[str],features_cat: List[str],) -> ColumnTransformer:
+    """
+    Build preprocessing pipeline.
+    """
+    logger.info(
+        "PROCESS DATA : Start building preprocessing pipeline | "
+        "num_features=%s | cat_features=%s",
+        len(features_num),
+        len(features_cat),
+    )
+    numeric_transformer = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", StandardScaler()),
+        ]
     )
 
-    # Add suffix for substitution products
-    produits_substitution = produits.add_suffix('Substitution')
-
-    # Merge substitutions with substitution products
-    substitutions_produits_original_substitut = pd.merge(
-        substitutions_produits_original,
-        produits_substitution,
-        on='idProduitSubstitution',
-        how='left'
+    categorical_transformer = Pipeline(
+        steps=[
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("onehot", OneHotEncoder(handle_unknown="ignore")),
+        ]
     )
 
-    # Merge with transactions
-    transactions_avec_substitution = pd.merge(
-        transactions,
-        substitutions_produits_original_substitut,
-        left_on=['idProduit', 'idTransaction'],
-        right_on=['idProduitOriginal', 'idTransaction'],
-        how='inner'
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ("num", numeric_transformer, features_num),
+            ("cat", categorical_transformer, features_cat),
+        ]
     )
 
-    # Encode estAcceptee as binary
-    transactions_avec_substitution['estAcceptee_bin'] = (
-        transactions_avec_substitution['estAcceptee'].apply(lambda x: 1 if x is False else 0)
+    return preprocessor
+
+
+def fit_transform_preprocessor(preprocessor: ColumnTransformer, X_train: pd.DataFrame, X_test: pd.DataFrame,) -> Tuple[pd.DataFrame, pd.DataFrame, ColumnTransformer]:
+    """
+    Fit preprocessing on train set and transform train & test.
+    """
+    X_train_transformed = preprocessor.fit_transform(X_train)
+    X_test_transformed = preprocessor.transform(X_test)
+    logger.info(
+        "PROCESS DATA : Preprocessing completed | "
+        "X_train_transformed=%s | X_test_transformed=%s",
+        X_train_transformed.shape,
+        X_test_transformed.shape,
     )
 
-    return transactions_avec_substitution
+    return pd.DataFrame(X_train_transformed), pd.DataFrame(X_test_transformed), preprocessor

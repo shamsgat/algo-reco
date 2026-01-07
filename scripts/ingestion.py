@@ -1,6 +1,5 @@
 # scripts/ingestion.py
 
-import os
 import logging
 from scripts.bootstrap import init_gcp_credentials
 from scripts.utils import (
@@ -11,10 +10,6 @@ from scripts.utils import (
 )
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
-)
 
 class Ingestion:
     def __init__(self):

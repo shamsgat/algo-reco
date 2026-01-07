@@ -1,8 +1,11 @@
 google-cloud-storage
 pandas
+scikit-learn
 pyarrow
 gcsfs
 google-cloud-bigquery
 db-dtypes
 dotenv
 pandas-gbq
+pendulum
+pylance
