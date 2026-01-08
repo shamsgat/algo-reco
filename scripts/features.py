@@ -1,8 +1,9 @@
 # scripts/features.py
-import logging
+
+from airflow.utils.log.logging_mixin import LoggingMixin
 import pandas as pd
 
-logger = logging.getLogger(__name__)
+logger = LoggingMixin().log
 
 
 def merge_transactions_with_substitutions( produits: pd.DataFrame, substitutions: pd.DataFrame, transactions: pd.DataFrame) -> pd.DataFrame:

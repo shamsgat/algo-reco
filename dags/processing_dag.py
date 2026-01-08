@@ -18,9 +18,9 @@ logger = logging.getLogger(__name__)
 
 @dag(
     start_date=datetime(2025, 1, 1),
-    schedule="@daily",
-    doc_md=__doc__,
+    schedule=None,
     default_args={"owner": "ML", "retries": 3},
+    catchup=False,
     tags=["ml", "processing"]
 )
 

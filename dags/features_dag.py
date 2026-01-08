@@ -14,9 +14,10 @@ from scripts.features import *
 
 @dag(
     start_date=datetime(2025, 1, 1),
-    schedule="@daily",
+    schedule=None,
     doc_md=__doc__,
     default_args={"owner": "ML", "retries": 3},
+    catchup=False,
     tags=["ml", "features"]
 )
 

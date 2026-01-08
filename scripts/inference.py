@@ -1,9 +1,9 @@
 # scripts/inference.py
-import logging
+from airflow.utils.log.logging_mixin import LoggingMixin
 import numpy as np
 import pandas as pd
 
-logger = logging.getLogger(__name__)
+logger = LoggingMixin().log
 
 def run_inference(model,best_params: dict,Z_transformed: pd.DataFrame,threshold: float = 0.5,add_proba: bool = True) -> pd.DataFrame:
     """

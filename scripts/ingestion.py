@@ -1,6 +1,6 @@
 # scripts/ingestion.py
 
-import logging
+from airflow.utils.log.logging_mixin import LoggingMixin
 from scripts.bootstrap import init_gcp_credentials
 from scripts.utils import (
     load_data_gcs,
@@ -9,7 +9,7 @@ from scripts.utils import (
     dump_table_into_bq,
 )
 
-logger = logging.getLogger(__name__)
+logger = LoggingMixin().log
 
 class Ingestion:
     def __init__(self):

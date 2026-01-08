@@ -111,7 +111,6 @@ if __name__ == "__main__":
     MODEL_GCS_PATH = "gs://algo_reco/models/best_model.joblib"
     BEST_PARAMS_GCS_PATH = "gs://algo_reco/models/best_params.json"
     Z_TRANSFORMED_GCS_PATH = "gs://algo_reco/features/train/x_test_preprocessed.csv"
-
     OUTPUT_GCS_PATH = "gs://algo_reco/predictions"
     OUTPUT_FILENAME = "x_test_with_predictions"
 

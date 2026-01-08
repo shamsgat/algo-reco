@@ -1,5 +1,5 @@
 # scripts/processing.py
-import logging
+from airflow.utils.log.logging_mixin import LoggingMixin
 import pandas as pd
 from typing import List, Tuple
 
@@ -8,7 +8,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 
-logger = logging.getLogger(__name__)
+logger = LoggingMixin().log
 
 def define_target(df: pd.DataFrame, target_col: str = "estAcceptee_bin") -> pd.Series:
     """
@@ -107,7 +107,7 @@ def build_preprocessor(features_num: List[str],features_cat: List[str],) -> Colu
     categorical_transformer = Pipeline(
         steps=[
             ("imputer", SimpleImputer(strategy="most_frequent")),
-            ("onehot", OneHotEncoder(handle_unknown="ignore")),
+            ("onehot", OneHotEncoder(handle_unknown="ignore", sparse_output=False)),
         ]
     )
 
