@@ -13,6 +13,10 @@ from airflow import DAG
 from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 from pendulum import datetime
 
+# Variables à passer au DAG ingestion
+INGESTION_MODE = "inference" 
+INGESTION_DATES = ["2023-12-20", "2023-12-21"]  # liste de dates pour l'inference
+
 with DAG(
     dag_id="inference_pipeline_dag",
     start_date=datetime(2025, 1, 1),
@@ -25,18 +29,30 @@ with DAG(
     trigger_ingestion = TriggerDagRunOperator(
         task_id="trigger_ingestion",
         trigger_dag_id="ingestion_dag",
+        conf={
+            "INGESTION_MODE": INGESTION_MODE,
+            "INGESTION_DATES": INGESTION_DATES
+        },
         wait_for_completion=True
     )
 
     trigger_features = TriggerDagRunOperator(
         task_id="trigger_features",
         trigger_dag_id="features_dag",
+        conf={
+            "INGESTION_MODE": INGESTION_MODE,
+            "INGESTION_DATES": INGESTION_DATES
+        },
         wait_for_completion=True
     )
 
     trigger_processing = TriggerDagRunOperator(
         task_id="trigger_processing",
         trigger_dag_id="processing_dag",
+        conf={
+            "INGESTION_MODE": INGESTION_MODE,
+            "INGESTION_DATES": INGESTION_DATES
+        },
         wait_for_completion=True
     )
 

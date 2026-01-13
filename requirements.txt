@@ -15,3 +15,4 @@ lightgbm
 catboost
 scipy
 numpy
+jinja2

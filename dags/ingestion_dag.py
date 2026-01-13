@@ -4,89 +4,73 @@ ML data ingestion DAG.
 
 Ingests TRAIN or INFERENCE data from GCS to BigQuery
 according to the execution context.
+
+- TRAIN ingestion: full datasets
+- INFERENCE ingestion: list of dates (daily inference)
+Each date will generate its own table in BigQuery:
+    transactions_inference_YYYY_MM_DD
+    substitutions_inference_YYYY_MM_DD
 """
 
 from airflow.sdk import dag, task
 from pendulum import datetime
-from airflow.models import Variable
+from airflow.operators.python import get_current_context
 from scripts.ingestion import Ingestion
 
 @dag(
     start_date=datetime(2025, 1, 1),
-    schedule=None,  # inference DAG pourra être daily
+    schedule=None,  # peut être daily pour inference
     catchup=False,
     default_args={"owner": "ML", "retries": 3},
     tags=["ml", "ingestion"],
 )
 def ingestion_dag():
-
     ingestion = Ingestion()
 
-    MODE = Variable.get("INGESTION_MODE", default_var="inference")
-    # MODE ∈ {"train", "inference"}
-
     @task
-    def ingest_from_gcs(gcs_path: str, table_name: str):
-        ingestion.gcs_to_bq(
-            gcs_path=gcs_path,
-            table_name=table_name
-        )
+    def run_ingestion():
+        """
+        Tâche principale qui gère ingestion TRAIN ou INFERENCE
+        """
+        context = get_current_context()
+        dag_run = context.get("dag_run")
+        conf = dag_run.conf if dag_run else {}
 
-    # -------------------
-    # TRAIN INGESTION
-    # -------------------
-    if MODE == "train":
-        ingestion_sources = {
-            "produits": "gs://algo_reco/raw/produits/produits.csv",
-            "transactions_train": (
-                "gs://algo_reco/raw/transactions/"
-                "transactions_train/transactions_2023-01-01_2023-12-19.csv"
-            ),
-            "substitutions_train": (
-                "gs://algo_reco/raw/substitutions/"
-                "substitutions_train/substitutions_2023-01-01_2023-12-19.csv"
-            ),
-        }
+        MODE = conf.get("INGESTION_MODE", "inference")
+        INGESTION_DATES = conf.get("INGESTION_DATES", [])
 
-        for table_name, gcs_path in ingestion_sources.items():
-            ingest_from_gcs(
-                gcs_path=gcs_path,
-                table_name=table_name
-            )
+        def ingest_from_gcs(gcs_path: str, table_name: str):
+            """Charge un fichier GCS dans BigQuery"""
+            ingestion.gcs_to_bq(gcs_path=gcs_path, table_name=table_name)
+            print(f"[INFO] {table_name} chargé depuis {gcs_path}")
 
-    # -------------------
-    # INFERENCE INGESTION
-    # -------------------
-    else:
-        # Variable contenant une ou plusieurs dates séparées par des virgules
-        dates_str = Variable.get("INGESTION_DATES", default_var="")
-        if not dates_str:
-            raise ValueError("Airflow Variable 'INGESTION_DATES' must be set for inference mode.")
-
-        dates_list = [d.strip() for d in dates_str.split(",")]
-
-        for ds in dates_list:
+        if MODE == "train":
             ingestion_sources = {
                 "produits": "gs://algo_reco/raw/produits/produits.csv",
-                f"transactions_inference_{ds}": (
-                    f"gs://algo_reco/raw/transactions/"
-                    f"transactions_inference/transactions_{ds}.csv"
-                ),
-                f"substitutions_inference_{ds}": (
-                    f"gs://algo_reco/raw/substitutions/"
-                    f"substitutions_inference/substitutions_{ds}.csv"
-                ),
+                "transactions_train": "gs://algo_reco/raw/transactions/transactions_train/transactions_2023-01-01_2023-12-19.csv",
+                "substitutions_train": "gs://algo_reco/raw/substitutions/substitutions_train/substitutions_2023-01-01_2023-12-19.csv",
             }
-
             for table_name, gcs_path in ingestion_sources.items():
-                ingest_from_gcs(
-                    gcs_path=gcs_path,
-                    table_name=table_name
-                )
+                ingest_from_gcs(gcs_path, table_name)
 
-# Instantiate the DAG
+        else:  # INFERENCE
+            if not INGESTION_DATES:
+                raise ValueError("INFERENCE mode requires INGESTION_DATES")
+
+            for ds in INGESTION_DATES:
+                ds_table = ds.replace("-", "_")  # format table compatible BigQuery
+                ingestion_sources = {
+                    "produits": "gs://algo_reco/raw/produits/produits.csv",
+                    f"transactions_inference_{ds_table}": f"gs://algo_reco/raw/transactions/transactions_inference/transactions_{ds}.csv",
+                    f"substitutions_inference_{ds_table}": f"gs://algo_reco/raw/substitutions/substitutions_inference/substitutions_{ds}.csv",
+                }
+                for table_name, gcs_path in ingestion_sources.items():
+                    ingest_from_gcs(gcs_path, table_name)
+
+    run_ingestion()
+
+# Instanciation du DAG
 ingestion_dag()
-
 
 # ------------------------------------------------------------------------------------
 # # dags/ingestion_dag.py
